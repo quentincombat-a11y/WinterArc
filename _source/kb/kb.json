@@ -1,0 +1,568 @@
+[
+ {
+  "id": "volume",
+  "cat": "entrainement",
+  "titre": "Volume d'entraînement par muscle",
+  "conclusion": "La prise de muscle augmente avec le nombre de séries par muscle et par semaine. Au moins 10 séries par semaine et par muscle donnent de meilleurs résultats que moins de 5. Au-delà de 20, le gain supplémentaire est incertain et la récupération devient le facteur limitant.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass. J Sports Sci, 2017.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27433992/"
+   }
+  ],
+  "limites": "Études surtout sur des débutants et intermédiaires, sur des durées de 6 à 12 semaines. Le comptage des séries indirectes (ex. triceps au développé couché) n'est pas standardisé.",
+  "application": "Vise 10 à 20 séries par muscle et par semaine, en comptant une série indirecte pour une demi. En déficit, reste plutôt entre 10 et 16 : la récupération est plus limitée.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "rir",
+  "cat": "entrainement",
+  "titre": "Proximité de l'échec (RIR)",
+  "conclusion": "Pour l'hypertrophie, s'arrêter à 0 à 3 répétitions de l'échec donne des gains comparables à l'échec total, avec moins de fatigue. Plus on s'arrête loin de l'échec, plus les gains diminuent.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Refalo MC et al. Influence of resistance training proximity-to-failure on skeletal muscle hypertrophy: a systematic review with meta-analysis. Sports Med, 2023.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/36334240/"
+   }
+  ],
+  "limites": "Le RIR est une estimation subjective : on sous-estime souvent ce qu'il reste, surtout au début.",
+  "application": "Note ton RIR : vise 1 à 3 sur les séries de travail. Si tu notes souvent 4 ou plus, la charge est trop légère.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "frequence",
+  "cat": "entrainement",
+  "titre": "Fréquence par muscle",
+  "conclusion": "Travailler un muscle au moins deux fois par semaine semble légèrement supérieur à une seule fois, à volume non égalisé. À volume égal, la différence devient faible.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Schoenfeld BJ, Ogborn D, Krieger JW. Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis. Sports Med, 2016.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27102172/"
+   }
+  ],
+  "limites": "Méta-analyse de 2016 avec peu d'études sur des pratiquants avancés.",
+  "application": "Ton split travaille la plupart des muscles 1 fois par semaine, plus la calisthénie le lundi (dos, pecs, jambes au poids du corps). Le total compte plus que la fréquence : surveille le volume par muscle dans l'analyse musculaire.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "repos",
+  "cat": "entrainement",
+  "titre": "Temps de repos entre les séries",
+  "conclusion": "Des repos de 2 à 3 minutes sur les exercices polyarticulaires permettent de garder plus de répétitions et donnent plus de force et de muscle que des repos d'une minute.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Schoenfeld BJ et al. Longer interset rest periods enhance muscle strength and hypertrophy in resistance-trained men. J Strength Cond Res, 2016.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26605807/"
+   }
+  ],
+  "limites": "Étude sur 21 hommes entraînés pendant 8 semaines. Sur les exercices d'isolation, l'effet de repos longs est moins documenté.",
+  "application": "Les temps de l'appli (2 min 30 sur les gros mouvements, 1 à 1 min 30 en isolation) suivent cette logique.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "progression",
+  "cat": "entrainement",
+  "titre": "Double progression",
+  "conclusion": "Augmenter d'abord les répétitions dans une fourchette, puis la charge quand le haut de la fourchette est atteint sur toutes les séries, est une méthode pratique de surcharge progressive.",
+  "niveau": "faible",
+  "statut": "avis",
+  "etudes": [],
+  "limites": "Méthode issue de la pratique des coachs : pas d'étude comparant directement la double progression à d'autres méthodes. Elle repose sur le principe établi de surcharge progressive.",
+  "application": "C'est ce que fait le coach de l'appli : il propose la charge au-dessus quand ta fourchette est validée.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "deload",
+  "cat": "entrainement",
+  "titre": "Semaine allégée (deload)",
+  "conclusion": "Un consensus d'experts recommande une semaine allégée toutes les 4 à 8 semaines environ, en réduisant surtout le volume et l'intensité d'effort, pour gérer la fatigue.",
+  "niveau": "faible",
+  "statut": "consensus d'experts",
+  "etudes": [
+   {
+    "ref": "Bell L et al. Integrating deloading into strength and physique sports training programmes: an international Delphi consensus approach. Sports Med Open, 2023.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37730925/"
+   }
+  ],
+  "limites": "Consensus Delphi (avis d'experts), pas d'essai contrôlé démontrant un meilleur résultat final.",
+  "application": "Prévois une semaine allégée vers la semaine 6 ou 7 du Winter Arc (vers le 14–20 décembre), ou plus tôt si ton indicateur de récupération reste bas plusieurs jours.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "proteines",
+  "cat": "nutrition",
+  "titre": "Besoins en protéines",
+  "conclusion": "Au-delà d'environ 1,6 g/kg/jour, le gain musculaire supplémentaire lié aux protéines devient faible (méta-analyse). L'ISSN recommande 1,4 à 2,0 g/kg/jour pour les sportifs.",
+  "niveau": "élevé",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Morton RW et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains. Br J Sports Med, 2018.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/"
+   },
+   {
+    "ref": "Jäger R et al. ISSN Position Stand: protein and exercise. J Int Soc Sports Nutr, 2017.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+   }
+  ],
+  "limites": "La limite haute de l'intervalle de confiance monte à environ 2,2 g/kg : certains profils peuvent profiter d'un peu plus.",
+  "application": "À 82 kg : 1,6 g/kg = 131 g, 2 g/kg = 164 g. Ta cible de 160 g est dans le haut de la fourchette, ce qui est justifié en déficit.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "proteines_deficit",
+  "cat": "nutrition",
+  "titre": "Protéines en déficit calorique",
+  "conclusion": "En déficit, des apports élevés (environ 2,3 à 3,1 g/kg de masse maigre) aident à préserver la masse maigre. Un essai a même montré un gain de masse maigre avec 2,4 g/kg contre 1,2 g/kg en fort déficit avec entraînement intense.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Helms ER, Aragon AA, Fitschen PJ. Evidence-based recommendations for natural bodybuilding contest preparation: nutrition and supplementation. J Int Soc Sports Nutr, 2014.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24864135/"
+   },
+   {
+    "ref": "Longland TM et al. Higher compared with lower dietary protein during an energy deficit combined with intense exercise promotes greater lean mass gain and fat mass loss. Am J Clin Nutr, 2016.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26817506/"
+   }
+  ],
+  "limites": "L'essai de Longland porte sur 4 semaines avec un déficit de 40 % : bien plus fort que le tien.",
+  "application": "Ton déficit est modéré : 160 g/jour suffisent. Le plus important est de les atteindre chaque jour.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "repartition",
+  "cat": "nutrition",
+  "titre": "Répartition des protéines dans la journée",
+  "conclusion": "Pour la construction musculaire, viser environ 0,4 g/kg par repas sur au moins 4 repas est une stratégie raisonnable pour atteindre ses besoins.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Schoenfeld BJ, Aragon AA. How much protein can the body use in a single meal for muscle-building? Implications for daily protein distribution. J Int Soc Sports Nutr, 2018.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29497353/"
+   }
+  ],
+  "limites": "L'utilité d'une répartition parfaite est moins démontrée que celle du total journalier.",
+  "application": "À 82 kg : environ 33 g par repas, sur 4 prises. L'appli compte les repas contenant au moins 30 g de protéines.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "deficit",
+  "cat": "nutrition",
+  "titre": "Taille du déficit et vitesse de perte",
+  "conclusion": "Pour préserver le muscle, les recommandations de préparation physique visent une perte d'environ 0,5 à 1 % du poids par semaine.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Helms ER, Aragon AA, Fitschen PJ. Evidence-based recommendations for natural bodybuilding contest preparation: nutrition and supplementation. J Int Soc Sports Nutr, 2014.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24864135/"
+   }
+  ],
+  "limites": "Recommandations tirées surtout de pratiquants en préparation de compétition, déjà secs.",
+  "application": "À 82 kg : environ 0,4 à 0,8 kg par semaine. Ton objectif (5 kg en 13 semaines, soit 0,4 kg par semaine) est prudent : il favorise la prise de muscle en parallèle.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "energie7700",
+  "cat": "nutrition",
+  "titre": "Règle des 7 700 kcal par kilo",
+  "conclusion": "La règle « 7 700 kcal = 1 kg de gras » est une approximation : la perte réelle ralentit avec le temps car la dépense diminue et la composition de la perte varie.",
+  "niveau": "élevé",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Hall KD. What is the required energy deficit per unit weight loss? Int J Obes, 2008.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17848938/"
+   }
+  ],
+  "limites": "Valable à court terme comme ordre de grandeur seulement.",
+  "application": "Les bilans de l'appli donnent l'équivalent en kilos à titre indicatif. Seule la tendance de ton poids moyen sur 2 à 3 semaines dit la vérité.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "depense",
+  "cat": "nutrition",
+  "titre": "Estimation de la dépense énergétique",
+  "conclusion": "Les valeurs MET du Compendium donnent le coût énergétique moyen des activités. Les formules (Mifflin-St Jeor pour le métabolisme de base) ont une erreur individuelle de l'ordre de ±10 %.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Herrmann SD et al. 2024 Adult Compendium of Physical Activities: a third update of the energy costs of human activities. J Sport Health Sci, 2024.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38242596/"
+   }
+  ],
+  "limites": "Valeurs moyennes : ton coût réel peut être différent. D'où la calibration à partir de ton poids et de tes apports.",
+  "application": "L'appli ajuste ta dépense quand elle a assez de pesées et de calories saisies. En attendant, considère ses chiffres comme des estimations.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "fibres",
+  "cat": "nutrition",
+  "titre": "Fibres alimentaires",
+  "conclusion": "L'ANSES recommande 30 g de fibres par jour pour un adulte. Les fibres augmentent la satiété, ce qui aide en déficit.",
+  "niveau": "élevé",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "ANSES. Fibres alimentaires (repères nutritionnels).",
+    "url": "https://www.anses.fr/fr/system/files/PASER-Fi-Fibres.pdf"
+   }
+  ],
+  "limites": "Les apports réels en France sont en moyenne bien plus bas (autour de 20 g).",
+  "application": "Vise 30 g : légumes à chaque repas, pâtes ou riz complets de temps en temps, légumineuses, fruits.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "alcool",
+  "cat": "nutrition",
+  "titre": "Alcool et récupération musculaire",
+  "conclusion": "Une forte consommation d'alcool après l'entraînement réduit la synthèse des protéines musculaires, même avec des protéines consommées en même temps. L'alcool apporte 7 kcal par gramme.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Parr EB et al. Alcohol ingestion impairs maximal post-exercise rates of myofibrillar protein synthesis following a single bout of concurrent training. PLoS One, 2014.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24533082/"
+   }
+  ],
+  "limites": "Étude avec une dose élevée (environ 1,5 g/kg, soit une dizaine de verres pour toi) : l'effet de 2 à 3 verres est moins clair.",
+  "application": "Évite l'alcool le soir des séances. Les verres saisis dans l'appli sont maintenant comptés dans tes calories.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "sommeil",
+  "cat": "recuperation",
+  "titre": "Sommeil",
+  "conclusion": "Le consensus recommande au moins 7 heures par nuit pour un adulte. En déficit calorique, dormir 5 h 30 au lieu de 8 h 30 a fait perdre plus de masse maigre et moins de gras, à perte de poids égale.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Watson NF et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and Sleep Research Society. Sleep / J Clin Sleep Med, 2015.",
+    "url": "https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf"
+   },
+   {
+    "ref": "Nedeltcheva AV et al. Insufficient sleep undermines dietary efforts to reduce adiposity. Ann Intern Med, 2010.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/20921542/"
+   }
+  ],
+  "limites": "L'essai de Nedeltcheva est court (2 semaines) et sur un petit groupe.",
+  "application": "Vise 7 à 9 heures. Avec tes services du soir jusqu'à 23 h ou minuit, protège tes matins quand c'est possible.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "hydratation",
+  "cat": "recuperation",
+  "titre": "Hydratation",
+  "conclusion": "L'ACSM recommande d'éviter une perte de plus de 2 % du poids en eau pendant l'effort et de boire selon la soif et la sudation.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Sawka MN et al. American College of Sports Medicine position stand. Exercise and fluid replacement. Med Sci Sports Exerc, 2007.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17277604/"
+   }
+  ],
+  "limites": "Les besoins varient beaucoup selon la chaleur et la transpiration.",
+  "application": "Tes 2,5 à 3 L par jour (verres de l'appli) sont un repère raisonnable. Les jours de long padel, ajoute 0,5 à 1 L.",
+  "consulte": "2026-11-18"
+ },
+ {
+  "id": "creatine",
+  "cat": "complement",
+  "titre": "Créatine monohydrate",
+  "conclusion": "Le complément le plus étudié et le plus efficace pour la force et la masse musculaire en musculation, avec un bon profil de sécurité chez l'adulte en bonne santé.",
+  "niveau": "élevé",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Kreider RB et al. ISSN position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. J Int Soc Sports Nutr, 2017.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/"
+   }
+  ],
+  "limites": "La réponse varie : certaines personnes ont déjà des réserves élevées et en tirent moins de bénéfice.",
+  "application": "Utile pour toi : 5 g par jour. Attends-toi à +1 à 2 kg sur la balance le premier mois : l'appli et le coach en tiendront compte si tu indiques la date de début.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Augmente les réserves de phosphocréatine des muscles, qui fournissent l'énergie des efforts courts et intenses. Permet un peu plus de répétitions par série, donc plus de travail à l'entraînement.",
+  "dosage": "3 à 5 g par jour, tous les jours. Une phase de charge (20 g/jour pendant 5 à 7 jours) est facultative.",
+  "timing": "N'importe quand, tous les jours, y compris les jours de repos. La régularité compte plus que l'heure.",
+  "effets": "Prise de poids de 1 à 2 kg en eau dans les muscles les premières semaines. Gêne digestive possible à forte dose.",
+  "precautions": "À éviter en cas de maladie rénale sans avis médical. La prise d'eau fausse la balance au début : ne la confonds pas avec du gras.",
+  "qualite": "Choisir de la créatine monohydrate pure, idéalement avec le label Creapure. Les autres formes (HCl, éthyl ester…) n'ont pas montré de meilleur effet.",
+  "prix": "Environ 3 à 5 € par mois (indicatif, novembre 2026).",
+  "verdict": "recommandé"
+ },
+ {
+  "id": "whey",
+  "cat": "complement",
+  "titre": "Whey (protéines de lactosérum)",
+  "conclusion": "Les compléments protéinés augmentent légèrement les gains de muscle et de force, surtout quand l'apport total était insuffisant.",
+  "niveau": "élevé",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Morton RW et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains. Br J Sports Med, 2018.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/"
+   },
+   {
+    "ref": "Jäger R et al. ISSN Position Stand: protein and exercise. J Int Soc Sports Nutr, 2017.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+   }
+  ],
+  "limites": "Aucun avantage démontré sur des protéines alimentaires de qualité à quantité égale.",
+  "application": "Tu en prends déjà. Elle est utile surtout les jours où tu n'atteins pas 160 g (6 jours sur 9 depuis le début).",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Protéine laitière riche en leucine, rapidement digérée. C'est un aliment, pas un produit magique : elle aide à atteindre le total de protéines.",
+  "dosage": "20 à 40 g par prise, selon ce qui manque pour atteindre ta cible du jour.",
+  "timing": "Quand c'est pratique : après la séance, au petit-déjeuner ou en collation. Le total de la journée compte plus que le moment.",
+  "effets": "Ballonnements possibles en cas d'intolérance au lactose (préférer un isolat).",
+  "precautions": "Allergie aux protéines de lait. Ne remplace pas des repas complets.",
+  "qualite": "Isolat natif peu transformé, sans arômes ajoutés inutiles, avec un aminogramme publié.",
+  "prix": "Environ 25 à 40 € par mois pour 30 g par jour (indicatif, novembre 2026).",
+  "verdict": "recommandé"
+ },
+ {
+  "id": "cafeine",
+  "cat": "complement",
+  "titre": "Caféine",
+  "conclusion": "Améliore la performance en force, en endurance et en efforts intermittents chez la plupart des personnes.",
+  "niveau": "élevé",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Guest NS et al. ISSN position stand: caffeine and exercise performance. J Int Soc Sports Nutr, 2021.",
+    "url": "https://jissn.biomedcentral.com/articles/10.1186/s12970-020-00383-4"
+   },
+   {
+    "ref": "EFSA. Scientific opinion on the safety of caffeine (2015) — dossier caféine.",
+    "url": "https://www.efsa.europa.eu/en/topics/topic/caffeine"
+   }
+  ],
+  "limites": "Forte variabilité individuelle (génétique, habitude).",
+  "application": "Utile avant tes séances du matin ou de début d'après-midi. Évite-la avant tes séances de jambes à 17 h 30 si tu enchaînes avec un service tardif puis le coucher.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Bloque les récepteurs de l'adénosine : moins de sensation de fatigue et d'effort, meilleure vigilance.",
+  "dosage": "3 à 6 mg/kg, soit 250 à 490 mg pour toi. Des doses plus faibles (environ 200 mg) suffisent souvent. L'EFSA considère jusqu'à 400 mg par jour comme sans risque pour l'adulte.",
+  "timing": "30 à 60 minutes avant la séance.",
+  "effets": "Troubles du sommeil, nervosité, palpitations, troubles digestifs.",
+  "precautions": "Évite la caféine dans les 6 à 8 heures avant le coucher : le sommeil compte plus pour toi que le gain de performance. Prudence en cas de troubles cardiaques ou d'anxiété.",
+  "qualite": "Un café ou un comprimé de caféine dosé suffit. Les boosters pré-séance multi-ingrédients sont plus chers et souvent sous-dosés.",
+  "prix": "Pratiquement gratuit avec du café ; environ 3 à 5 € par mois en comprimés (indicatif).",
+  "verdict": "utile si"
+ },
+ {
+  "id": "magnesium",
+  "cat": "complement",
+  "titre": "Magnésium",
+  "conclusion": "Aucun bénéfice démontré sur la performance chez une personne dont les apports sont suffisants. Un bénéfice est possible en cas de déficit.",
+  "niveau": "faible",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Zhang Y et al. Can magnesium enhance exercise performance? Nutrients, 2017.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28846654/"
+   }
+  ],
+  "limites": "Peu d'études de qualité chez des sportifs non carencés.",
+  "application": "Pas utile par défaut. Mange des légumes verts, des oléagineux et des produits complets. À reconsidérer seulement en cas de déficit identifié par une prise de sang.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Minéral impliqué dans le fonctionnement musculaire et la production d'énergie.",
+  "dosage": "Si besoin : 200 à 350 mg par jour (bisglycinate ou citrate).",
+  "timing": "Plutôt le soir, avec un repas.",
+  "effets": "Diarrhée à forte dose, surtout avec l'oxyde ou le citrate.",
+  "precautions": "Insuffisance rénale : avis médical. Interactions avec certains antibiotiques.",
+  "qualite": "Bisglycinate ou citrate, mieux absorbés que l'oxyde.",
+  "prix": "Environ 6 à 10 € par mois (indicatif).",
+  "verdict": "inutile pour toi"
+ },
+ {
+  "id": "vitamined",
+  "cat": "complement",
+  "titre": "Vitamine D",
+  "conclusion": "La supplémentation n'améliore pas clairement la force chez les sportifs dont le taux est correct. Elle est utile en cas de carence, fréquente en hiver en France.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Han Q et al. Effect of vitamin D supplementation on upper and lower limb muscle strength and muscle power in athletes: a meta-analysis. PLoS One, 2019.",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6490896/"
+   }
+  ],
+  "limites": "Les effets sur la performance dépendent du taux de départ.",
+  "application": "Novembre à février, peu de soleil : une supplémentation modérée en hiver est raisonnable, surtout si tu travailles beaucoup en intérieur. Une prise de sang chez ton médecin reste la meilleure façon de savoir.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Hormone produite par la peau au soleil, impliquée dans les os, l'immunité et la fonction musculaire.",
+  "dosage": "Couramment 1 000 à 2 000 UI (25 à 50 µg) par jour en hiver. La limite de sécurité fixée par l'EFSA pour l'adulte est de 100 µg (4 000 UI) par jour.",
+  "timing": "Avec un repas contenant des graisses.",
+  "effets": "Toxicité possible seulement à fortes doses prolongées.",
+  "precautions": "Idéalement, doser le taux sanguin (25-OH-D) avant de supplémenter à long terme.",
+  "qualite": "D3 (cholécalciférol), dosage clair, éviter les mégadoses.",
+  "prix": "Environ 2 à 5 € par mois (indicatif).",
+  "verdict": "utile si"
+ },
+ {
+  "id": "omega3",
+  "cat": "complement",
+  "titre": "Oméga-3 (EPA et DHA)",
+  "conclusion": "Effets sur la masse musculaire documentés surtout chez les personnes âgées. Chez un jeune adulte qui s'entraîne, le bénéfice musculaire n'est pas démontré.",
+  "niveau": "faible",
+  "statut": "hypothèse",
+  "etudes": [
+   {
+    "ref": "Effects of omega-3 supplementation alone and combined with resistance exercise on skeletal muscle in older adults: a systematic review and meta-analysis. Nutrients, 2022.",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9182791/"
+   }
+  ],
+  "limites": "Les données chez le jeune adulte sportif sont insuffisantes.",
+  "application": "Mange plutôt du poisson gras (saumon, maquereau, sardine) 2 fois par semaine. Le complément n'a d'intérêt que si tu n'en manges jamais.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Acides gras présents surtout dans les poissons gras, impliqués dans l'inflammation et les membranes cellulaires.",
+  "dosage": "Si apport en poisson faible : 1 à 2 g d'EPA + DHA par jour.",
+  "timing": "Avec un repas.",
+  "effets": "Renvois au goût de poisson, troubles digestifs.",
+  "precautions": "Traitement anticoagulant : avis médical.",
+  "qualite": "Huile purifiée avec un indice d'oxydation faible, teneur en EPA et DHA indiquée.",
+  "prix": "Environ 10 à 15 € par mois (indicatif).",
+  "verdict": "optionnel"
+ },
+ {
+  "id": "betaalanine",
+  "cat": "complement",
+  "titre": "Bêta-alanine",
+  "conclusion": "Améliore la performance sur des efforts intenses de 60 à 240 secondes. Effet faible sur les séries classiques de musculation de 8 à 12 répétitions.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Trexler ET et al. ISSN position stand: beta-alanine. J Int Soc Sports Nutr, 2015.",
+    "url": "https://jissn.biomedcentral.com/articles/10.1186/s12970-015-0090-y"
+   }
+  ],
+  "limites": "Effet surtout démontré sur les efforts de 1 à 4 minutes.",
+  "application": "Ton entraînement (séries courtes, longs repos) n'est pas le type d'effort qu'elle améliore. Pour le padel ou les sprints, l'intérêt reste faible.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Augmente la carnosine des muscles, qui retarde l'acidité pendant les efforts de 1 à 4 minutes.",
+  "dosage": "4 à 6 g par jour, en plusieurs prises, pendant au moins 2 à 4 semaines.",
+  "timing": "Fractionnée dans la journée, peu importe l'heure.",
+  "effets": "Picotements de la peau (paresthésie), sans danger.",
+  "precautions": "Aucune interaction majeure connue.",
+  "qualite": "Préférer les formes à libération prolongée pour limiter les picotements.",
+  "prix": "Environ 8 à 12 € par mois (indicatif).",
+  "verdict": "inutile pour toi"
+ },
+ {
+  "id": "citrulline",
+  "cat": "complement",
+  "titre": "Citrulline",
+  "conclusion": "Résultats mitigés : quelques études montrent un léger gain de répétitions, d'autres aucun effet.",
+  "niveau": "faible",
+  "statut": "hypothèse",
+  "etudes": [
+   {
+    "ref": "Gonzalez AM, Trexler ET. Effects of citrulline supplementation on exercise performance in humans: a review of the current literature. J Strength Cond Res, 2020.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31977835/"
+   }
+  ],
+  "limites": "Peu d'études, résultats incohérents.",
+  "application": "Pas prioritaire. Ce budget est mieux placé dans la créatine et la nourriture.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Précurseur de l'arginine et du monoxyde d'azote, qui pourrait améliorer le flux sanguin.",
+  "dosage": "6 à 8 g de citrulline malate dans les études.",
+  "timing": "Environ 1 heure avant la séance.",
+  "effets": "Troubles digestifs possibles.",
+  "precautions": "Traitements contre l'hypertension : avis médical.",
+  "qualite": "Citrulline malate 2:1 avec un dosage clair.",
+  "prix": "Environ 15 à 25 € par mois (indicatif).",
+  "verdict": "optionnel"
+ },
+ {
+  "id": "electrolytes",
+  "cat": "complement",
+  "titre": "Électrolytes",
+  "conclusion": "Utiles pour les efforts longs avec forte transpiration. Inutiles pour une séance de musculation d'une heure avec une alimentation normale.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Sawka MN et al. American College of Sports Medicine position stand. Exercise and fluid replacement. Med Sci Sports Exerc, 2007.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17277604/"
+   }
+  ],
+  "limites": "Les besoins dépendent de la sueur de chacun.",
+  "application": "Seulement pour tes longues sessions de padel (2 h et plus). Inutile pour tes séances de muscu.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Sodium, potassium et magnésium perdus dans la sueur.",
+  "dosage": "Si effort long : environ 300 à 600 mg de sodium par heure d'effort très transpirant.",
+  "timing": "Pendant ou après les efforts longs.",
+  "effets": "Rares aux doses usuelles.",
+  "precautions": "Hypertension : surveiller le sodium.",
+  "qualite": "Simple : une boisson isotonique ou une pincée de sel dans l'eau suffit.",
+  "prix": "Environ 10 à 20 € par mois si usage quotidien (indicatif).",
+  "verdict": "utile si"
+ },
+ {
+  "id": "nitrates",
+  "cat": "complement",
+  "titre": "Nitrates (jus de betterave)",
+  "conclusion": "Petit effet positif sur l'endurance, surtout chez les personnes peu entraînées. Effet sur la musculation peu étudié.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Senefeld JW et al. Ergogenic effect of nitrate supplementation: a systematic review and meta-analysis. Med Sci Sports Exerc, 2020.",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7494956"
+   }
+  ],
+  "limites": "Effet plus faible chez les sportifs entraînés.",
+  "application": "Pas pertinent pour ton objectif de recomposition. Mange des légumes verts et de la betterave si tu aimes.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Convertis en monoxyde d'azote, ils réduisent le coût en oxygène de l'effort.",
+  "dosage": "Environ 6 à 8 mmol de nitrates (un shot de jus de betterave concentré).",
+  "timing": "2 à 3 heures avant l'effort.",
+  "effets": "Urine et selles rosées, sans danger. Troubles digestifs possibles.",
+  "precautions": "Les bains de bouche antiseptiques réduisent l'effet.",
+  "qualite": "Shots de jus de betterave dosés en nitrates.",
+  "prix": "Environ 2 € le shot ; cher en usage quotidien (indicatif).",
+  "verdict": "inutile pour toi"
+ },
+ {
+  "id": "bcaa",
+  "cat": "complement",
+  "titre": "BCAA et EAA",
+  "conclusion": "Les BCAA seuls ne suffisent pas à stimuler durablement la synthèse musculaire. Avec un apport en protéines suffisant, ni les BCAA ni les EAA n'apportent de bénéfice supplémentaire démontré.",
+  "niveau": "modéré",
+  "statut": "consensus",
+  "etudes": [
+   {
+    "ref": "Wolfe RR. Branched-chain amino acids and muscle protein synthesis in humans: myth or reality? J Int Soc Sports Nutr, 2017.",
+    "url": "https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0184-9"
+   },
+   {
+    "ref": "Jäger R et al. ISSN Position Stand: protein and exercise. J Int Soc Sports Nutr, 2017.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+   }
+  ],
+  "limites": "Les EAA peuvent avoir un intérêt dans des cas très particuliers (régime très pauvre en protéines), qui ne te concernent pas.",
+  "application": "Inutile avec 140 à 160 g de protéines par jour. Ne les achète pas.",
+  "consulte": "2026-11-18",
+  "fonctionnement": "Acides aminés essentiels (EAA) dont la leucine, l'isoleucine et la valine (BCAA). Les BCAA seuls ne contiennent pas tous les acides aminés nécessaires pour construire du muscle.",
+  "dosage": "Pas de dose recommandée pour toi.",
+  "timing": "Sans objet.",
+  "effets": "Peu d'effets indésirables ; surtout une dépense inutile.",
+  "precautions": "Aucune particulière.",
+  "qualite": "Si vraiment besoin d'une source pratique, une whey est plus complète et moins chère.",
+  "prix": "Environ 20 à 35 € par mois (indicatif).",
+  "verdict": "déconseillé"
+ }
+]

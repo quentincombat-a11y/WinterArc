@@ -1,0 +1,1 @@
+{"name": "Winter Arc", "short_name": "Winter Arc", "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#F4F7F8", "theme_color": "#1F5F7A", "lang": "fr", "icons": [{"src": "icons/app-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "icons/app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]}
