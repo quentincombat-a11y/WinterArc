@@ -11,6 +11,6 @@ Sources et licences
 - CIQUAL 2025 — Anses, Licence Ouverte / Open Licence 2.0 (Etalab) — https://ciqual.anses.fr/
 - Open Food Facts — données sous ODbL 1.0, contenus sous DbCL 1.0 — https://openfoodfacts.org (interrogé à la demande, non redistribué)
 - ZXing (lecture des codes-barres) — Apache 2.0
-- supabase-js — MIT (`vendor/supabase-LICENSE.txt`)
+- supabase-js 2.118.0 — MIT (`vendor/supabase-LICENSE.txt`)
 
 `_source/` contient les sources de construction (`build.py`).

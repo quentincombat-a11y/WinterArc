@@ -3,7 +3,7 @@
 <meta name="theme-color" content="#1F5F7A"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Winter Arc">
 <link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/app-180.png"><link rel="icon" href="icons/app-192.png">
-<script src="config.js"></script><script src="vendor/supabase-2.45.4.js"></script><script src="kb.js"></script><script src="runtime.js"></script>
+<script src="config.js"></script><script src="vendor/supabase-2.118.0.js"></script><script src="kb.js"></script><script src="runtime.js"></script>
 </head><body><title>Winter Arc</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -3282,7 +3282,7 @@ const acct = { email: "", msg: "", busy: false, mode: "" };
 function accountCardHTML(){
   const S = window.WA_WEB ? window.WA_WEB.status : { mode: "local" };
   const line = S.mode !== "cloud" ? "Sauvegarde en ligne pas encore activée : tes données sont seulement sur ce téléphone. Exporte-les régulièrement ci-dessous."
-    : !S.user ? "Connexion au serveur en cours…"
+    : !S.user ? (S.error ? esc(S.error) + " Tes données restent sur ce téléphone en attendant." : "Connexion au serveur en cours…")
     : S.error ? S.error
     : `Sauvegarde en ligne active${S.email ? " (" + esc(S.email) + ")" : " (compte invisible)"}${S.pending ? " · " + S.pending + " modification" + (S.pending > 1 ? "s" : "") + " en attente" : ""}${S.lastSync ? " · dernière synchro " + new Date(S.lastSync).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) : ""}.`;
   return `<section class="card"><h2>Mon compte</h2>

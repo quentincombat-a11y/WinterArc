@@ -20,7 +20,7 @@ head='''<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="theme-color" content="#1F5F7A"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Winter Arc">
 <link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/app-180.png"><link rel="icon" href="icons/app-192.png">
-<script src="config.js"></script><script src="vendor/supabase-2.45.4.js"></script><script src="kb.js"></script><script src="runtime.js"></script>
+<script src="config.js"></script><script src="vendor/supabase-2.118.0.js"></script><script src="kb.js"></script><script src="runtime.js"></script>
 </head><body>'''
 open(OUT+"/index.html","w").write(head+page+"</body></html>")
 shutil.copy(ROOT+"/web/src/runtime.js",OUT+"/runtime.js")
@@ -29,7 +29,7 @@ open(OUT+"/config.js","w").write("window.WA_CONFIG="+json.dumps(cfg)+";\n")
 kb=json.load(open(ROOT+"/kb/kb.json")); kb=kb if isinstance(kb,dict) else {f["id"]:f for f in kb}
 open(OUT+"/kb.js","w").write("window.WA_KB="+json.dumps(kb,ensure_ascii=False)+";\n")
 for d in ["vendor","data","lib","icons"]: os.makedirs(OUT+"/"+d,exist_ok=True)
-shutil.copy(ROOT+"/web/vendor/supabase-2.45.4.js",OUT+"/vendor/"); shutil.copy(ROOT+"/web/vendor/supabase-LICENSE.txt",OUT+"/vendor/")
+shutil.copy(ROOT+"/web/vendor/supabase-2.118.0.js",OUT+"/vendor/"); shutil.copy(ROOT+"/web/vendor/supabase-LICENSE.txt",OUT+"/vendor/")
 shutil.copy(ROOT+"/data/ciqual-2025.json",OUT+"/data/"); shutil.copy(ROOT+"/lib/zxing-0.21.3.min.js",OUT+"/lib/")
 for f in glob.glob(ROOT+"/icons/*.webp"): shutil.copy(f,OUT+"/icons/")
 # icône d'appli
@@ -44,7 +44,7 @@ h=hashlib.sha1()
 for f in files:
     if f.endswith((".html",".js",".json")): h.update(open(OUT+"/"+f,"rb").read())
 ver=h.hexdigest()[:10]
-pre=["./","index.html","runtime.js","config.js","kb.js","vendor/supabase-2.45.4.js","manifest.webmanifest","lib/zxing-0.21.3.min.js","data/ciqual-2025.json"]+[f for f in files if f.startswith("icons/")]
+pre=["./","index.html","runtime.js","config.js","kb.js","vendor/supabase-2.118.0.js","manifest.webmanifest","lib/zxing-0.21.3.min.js","data/ciqual-2025.json"]+[f for f in files if f.startswith("icons/")]
 open(OUT+"/sw.js","w").write(f'''const V="wa-{ver}", PRE={json.dumps(pre)};
 self.addEventListener("install",e=>{{e.waitUntil(caches.open(V).then(c=>c.addAll(PRE)).then(()=>self.skipWaiting()))}});
 self.addEventListener("activate",e=>{{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))}});

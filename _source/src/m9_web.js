@@ -43,7 +43,7 @@ const acct = { email: "", msg: "", busy: false, mode: "" };
 function accountCardHTML(){
   const S = window.WA_WEB ? window.WA_WEB.status : { mode: "local" };
   const line = S.mode !== "cloud" ? "Sauvegarde en ligne pas encore activée : tes données sont seulement sur ce téléphone. Exporte-les régulièrement ci-dessous."
-    : !S.user ? "Connexion au serveur en cours…"
+    : !S.user ? (S.error ? esc(S.error) + " Tes données restent sur ce téléphone en attendant." : "Connexion au serveur en cours…")
     : S.error ? S.error
     : `Sauvegarde en ligne active${S.email ? " (" + esc(S.email) + ")" : " (compte invisible)"}${S.pending ? " · " + S.pending + " modification" + (S.pending > 1 ? "s" : "") + " en attente" : ""}${S.lastSync ? " · dernière synchro " + new Date(S.lastSync).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) : ""}.`;
   return `<section class="card"><h2>Mon compte</h2>
