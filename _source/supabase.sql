@@ -13,3 +13,7 @@ create policy "chacun ses documents" on public.docs
   for all to authenticated
   using (user_id = auth.uid())
   with check (user_id = auth.uid());
+
+-- Projets Supabase récents : accorder explicitement l'accès aux utilisateurs connectés (dont anonymes)
+grant usage on schema public to authenticated;
+grant select, insert, update, delete on table public.docs to authenticated;
