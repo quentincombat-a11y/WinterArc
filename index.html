@@ -460,7 +460,7 @@ nav.tabs .in{grid-template-columns:repeat(5,minmax(0,1fr))!important}
 </div></nav>
 <div id="scroller"><div class="wrap">
   <header>
-    <div class="brand"><h1>Winter Arc</h1><span class="wk" id="wk"></span></div>
+    <div class="brand"><h1>Winter Arc</h1></div>
     <div class="daynav" id="daynav">
       <button class="ib" id="prev" aria-label="Jour précédent">‹</button>
       <div class="date" id="dateLabel"></div>
@@ -4096,7 +4096,6 @@ document.addEventListener("input", e => { if(e.target && e.target.id && e.target
 function render(){
   try{ registerCustoms() }catch(e){}
   const k=state.sel, w=weekOf(k);
-  document.getElementById("wk").textContent = k<START?"Départ le "+fmtShort.format(parseKey(START)):"Semaine "+w;
   document.getElementById("dateLabel").textContent = fmtLong.format(parseKey(k));
   document.getElementById("goToday").hidden = k===todayKey();
   const showNav = state.tab==="accueil"||state.tab==="journee"||state.tab==="jour"||state.tab==="seance";
