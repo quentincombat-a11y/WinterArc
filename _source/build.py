@@ -14,7 +14,16 @@ page=re.sub(r'"/_blob/"\+([\w.]+)', r'blobSrc(\1)', page)
 assert "/_blob/" not in page
 rep('||"Quentin" }','||"Mon profil" }')
 # pas de coach IA dans la version web
-rep("</style>",".tab[data-tab=coach]{display:none}\nnav.tabs .in{grid-template-columns:repeat(5,minmax(0,1fr))!important}\n</style>")
+rep("Tes 4 séances, cibles et règles","Ton programme, tes cibles et les règles")
+rep("</style>",""".obgrid{display:grid;gap:8px}.obgrid.two{grid-template-columns:1fr 1fr}.obgrid.three{grid-template-columns:repeat(3,1fr)}.obgrid.four{grid-template-columns:repeat(4,1fr)}
+.obopt{display:grid;gap:2px;text-align:left;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--sunk);color:var(--fg);font:inherit}
+.obgrid.two .obopt,.obgrid.three .obopt,.obgrid.four .obopt{text-align:center}
+.obopt.on{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent) inset}
+.obdays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.obdays button{height:44px;border-radius:10px;border:1px solid var(--line);background:var(--sunk);color:var(--fg);font:inherit;font-weight:700}
+.obdays button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.obdots{display:flex;gap:6px;justify-content:center}.obdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}.obdots i.on{background:var(--accent);width:22px;border-radius:4px}.obdots i.done{background:var(--accent);opacity:.5}
+.obsess{display:grid;gap:3px;padding:10px 12px;border-radius:12px;background:var(--sunk)}
+"""+".tab[data-tab=coach]{display:none}\nnav.tabs .in{grid-template-columns:repeat(5,minmax(0,1fr))!important}\n</style>")
 head='''<!doctype html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1F5F7A"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
