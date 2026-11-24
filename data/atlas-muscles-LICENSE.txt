@@ -1,0 +1,12 @@
+atlas-muscles.json (fichier atlas-muscles.bin encodé en base64) — modèle anatomique 3D utilisé par l'Atlas musculaire de Winter Arc
+
+Source : BodyParts3D, © The Database Center for Life Science (DBCLS), licence CC BY-SA 2.1 JP
+(https://lifesciencedb.jp/bp3d/), via le projet « Anatomía en capas » (niuxito/human-body),
+maillages diffusés sous licence Creative Commons Attribution - Partage dans les mêmes conditions 4.0 (CC BY-SA 4.0).
+
+Modifications apportées pour Winter Arc : sélection des muscles, tendons et os ; simplification
+des maillages (meshoptimizer) ; suppression des portions d'aponévrose des obliques et du transverse
+situées devant le grand droit de l'abdomen ; quantification et compression des sommets.
+Ce fichier dérivé est diffusé sous la même licence CC BY-SA 4.0 : https://creativecommons.org/licenses/by-sa/4.0/
+
+Bibliothèques : three.js (MIT, © three.js authors), meshoptimizer (MIT, © Arseny Kapoulkine).

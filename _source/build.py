@@ -31,6 +31,7 @@ open(OUT+"/kb.js","w").write("window.WA_KB="+json.dumps(kb,ensure_ascii=False)+"
 for d in ["vendor","data","lib","icons"]: os.makedirs(OUT+"/"+d,exist_ok=True)
 shutil.copy(ROOT+"/web/vendor/supabase-2.118.0.js",OUT+"/vendor/"); shutil.copy(ROOT+"/web/vendor/supabase-LICENSE.txt",OUT+"/vendor/")
 shutil.copy(ROOT+"/data/ciqual-2025.json",OUT+"/data/"); shutil.copy(ROOT+"/lib/zxing-0.21.3.min.js",OUT+"/lib/")
+for f in ["lib/three-0.149.0.min.js","lib/meshopt_decoder-0.22.0.js","lib/meshopt_decoder_ref-0.22.0.js","data/atlas-muscles.json","data/atlas-muscles-LICENSE.txt"]: shutil.copy(ROOT+"/"+f,OUT+"/"+f)
 for f in glob.glob(ROOT+"/icons/*.webp"): shutil.copy(f,OUT+"/icons/")
 # icône d'appli
 src=Image.open(ROOT+"/icons/i-muscle.webp").convert("RGBA")

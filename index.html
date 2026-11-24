@@ -388,16 +388,55 @@ details summary{cursor:pointer}
 .ezbar span{display:block;height:100%;background:var(--good)}
 
 /* ---------- corps interactif ---------- */
-.bodypair{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-width:420px;margin:0 auto;width:100%}
-.bodysvg{width:100%;height:auto;display:block}
-.bodysvg .bm{transition:fill .15s}
-.bodysvg.clickable .bm{cursor:pointer}
-.bodysvg.clickable .bm:hover{filter:brightness(1.08)}
-.bodysvg .bm:focus{outline:none;stroke:var(--fg);stroke-width:2.5}
-.bmlegend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.74rem;color:var(--muted)}
-.bmlegend span{display:inline-flex;align-items:center;gap:5px}
-.bmlegend i{width:12px;height:12px;border-radius:3px;display:inline-block}
-.bmdetail{display:grid;gap:6px;padding:12px;border-radius:12px;background:var(--sunk)}
+.atcard{gap:10px}
+.atseg{display:flex;background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.atseg button{flex:1;border:0;background:transparent;border-radius:7px;padding:8px 4px;font-size:.84rem;color:var(--muted);font-weight:600;min-height:36px}
+.atseg button.on{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.atstage{position:relative;height:clamp(440px,66vh,780px);border-radius:14px;overflow:hidden;background:radial-gradient(ellipse at 50% 38%,#1d2a33 0%,#111a20 55%,#0a0f13 100%);border:1px solid #22313a;color:#e4ecf0}
+.atstage .atlas-cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;outline:none;cursor:grab}
+.atmsg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:.9rem;color:#9fb3bf;pointer-events:none}
+.atmsg:empty{display:none}
+.attip[hidden]{display:none}
+.attip{position:absolute;z-index:3;pointer-events:none;background:rgba(10,16,20,.92);border:1px solid #2f4350;border-radius:10px;padding:7px 10px;display:grid;gap:2px;max-width:240px;font-size:.8rem;color:#e4ecf0;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.attip span{color:#9fb3bf;font-size:.74rem}
+.atzoom{position:absolute;right:8px;top:8px;display:grid;gap:6px;z-index:2}
+.atzoom button{width:38px;height:38px;border-radius:10px;border:1px solid #2f4350;background:rgba(16,24,30,.85);color:#e4ecf0;font-size:1.1rem}
+.athint{position:absolute;left:10px;bottom:8px;font-size:.7rem;color:#7f939f;pointer-events:none}
+.atleg{display:flex;flex-wrap:wrap;gap:5px 12px;font-size:.76rem;color:var(--muted);align-items:center}
+.atleg span{display:inline-flex;align-items:center;gap:5px}
+.atleg i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.atleg.small{font-size:.7rem}
+.atsearch{display:grid;gap:6px}
+.atres{display:grid;gap:4px}
+.atlist summary{cursor:pointer;font-weight:600;padding:6px 0}
+.atreg{display:grid;gap:3px;margin:6px 0 10px}
+.atrow{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:7px 2px;font-size:.86rem}
+.atrow i{width:12px;height:12px;border-radius:3px}
+.atrow.dim{opacity:.45}
+.atrow.on{background:var(--accent-soft)}
+.atsheet{position:fixed;left:0;right:0;bottom:0;z-index:70;max-height:64vh;overflow:auto;-webkit-overflow-scrolling:touch;background:var(--surface);border-top:1px solid var(--line);border-radius:18px 18px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.35);padding:14px 16px calc(18px + env(safe-area-inset-bottom,0px));display:grid;gap:10px;animation:atup .22s ease}
+@keyframes atup{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+@media (min-width:900px){.atsheet{left:auto;right:16px;top:16px;bottom:16px;width:400px;max-height:none;border-radius:16px;border:1px solid var(--line)}}
+.atsh-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;position:sticky;top:-14px;background:var(--surface);padding-top:2px;z-index:1}
+.atsh-head h3{margin:0;font-size:1.08rem}
+.atsnap{width:100%;aspect-ratio:4/3;border-radius:12px;background:#0f161b;object-fit:cover;display:block}
+.atsnap.empty{display:flex;align-items:center;justify-content:center;color:#9fb3bf;font-size:.85rem}
+.atfn{margin:0;line-height:1.45}
+.atkpi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.atkpi div{background:var(--sunk);border-radius:10px;padding:9px 10px;display:grid;gap:2px}
+.atkpi b{font-size:1.15rem;font-variant-numeric:tabular-nums}
+.atkpi span{font-size:.74rem;color:var(--muted)}
+.atbars{width:100%;height:auto;color:var(--fg)}
+.athist li,.atex li{font-size:.84rem;padding:3px 0}
+.atex li{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.ateditor{display:grid;gap:8px;padding:12px;border-radius:12px;background:var(--sunk);border:1px solid var(--line)}
+.atedrow{align-items:center;gap:8px}
+.atedrow select{max-width:52%}
+.atcoefs{display:grid;gap:6px}
+.atcard.full{position:fixed;inset:0;z-index:65;margin:0;border-radius:0;overflow:auto;padding:calc(10px + env(safe-area-inset-top,0px)) 12px 20px}
+.atcard.full .atstage{height:calc(100vh - 190px);height:calc(100dvh - 190px)}
+.atcard.full .atlas-cv{touch-action:none}
+body.atfull{overflow:hidden}
 .sbnew{border-style:dashed;border-color:var(--accent)}
 .sblist{display:grid;gap:8px}
 .sbrow{display:grid;grid-template-columns:40px 1fr auto;grid-template-rows:auto auto;gap:4px 10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
@@ -1826,7 +1865,7 @@ function viewMuscu(){
     return `<tr><td>${m}</td><td>${fmt(v.eff/W,1)}</td><td>${fmt(lastW[m].eff,1)}</td><td>${fmt(v.days.size/W,1)}</td><td>${rir!=null?fmt(rir,1):"–"}</td><td><span class="pill ${f.cls}">${f.lbl}</span></td></tr>` }).join("");
   const prog=progressionRows(W), stag=prog.filter(p=>p.stagn);
   const progRows=prog.map(p=>`<tr><td>${esc(p.n)}</td><td>${p.count}</td><td>${fmt(p.first,0)} → ${fmt(p.last,0)}</td><td style="color:var(--${p.pct>1?"good":p.pct<-1?"bad":"muted"})">${p.pct>0?"+":""}${fmt(p.pct,1)} %</td><td>${p.stagn?`<span class="pill warn">stagne</span>`:p.count<3?`<span class="pill">trop tôt</span>`:`<span class="pill good">progresse</span>`}</td></tr>`).join("");
-  return `${statusNotice()}${bodyMapCardHTML()}
+  return `${statusNotice()}${atlasCardHTML()}
   <section class="card"><h2 class="ttl"><img class="ico" src="icons/i-muscle.webp" alt="">Volume par muscle</h2>
     <div class="chips">${[4,8,13].map(w=>`<button class="chip ${mus.weeks===w?"on":""}" data-muscw="${w}">${w} semaines</button>`).join("")}</div>
     ${barChart(items,{zone:[10,20],h:170,aria:"Séries par semaine et par muscle"})}
@@ -2238,7 +2277,7 @@ function answerHTML(m,role,idx){
 }
 function viewCoach(){
   const role=roleOf(coach.role), log=state.coachlog[role.id]||{msgs:[]}, alerts=coachAlerts();
-  return `${statusNotice()}${bodyMapCardHTML()}
+  return `${statusNotice()}${atlasCardHTML()}
   ${alerts.length?`<section class="card"><h2 class="ttl"><img class="ico" src="icons/i-check.webp" alt="">Ce que le coach a repéré</h2><div class="elist">${alerts.map(a=>`<div class="alert ${a.cls}"><b>${esc(a.t)}</b><span class="meta">${esc(a.d)}</span>${a.go?`<button class="linkbtn" data-goto="${a.go}">Y aller ›</button>`:a.role?`<button class="linkbtn" data-coachrole="${a.role}">Demander au coach ›</button>`:a.psub?`<button class="linkbtn" data-psubgo="${a.psub}">Ouvrir ›</button>`:""}</div>`).join("")}</div>
     <span class="meta">Alertes calculées directement à partir de tes données, sans IA.</span></section>`:""}
   <section class="card"><h2>Tes coachs</h2><div class="roles">${ROLES.map(r=>`<button class="role ${r.id===role.id?"on":""}" data-coachrole="${r.id}"><img src="icons/${r.ico}.webp" alt=""><b>${r.n}</b><span>${r.d}</span></button>`).join("")}</div></section>
@@ -3255,70 +3294,6 @@ function viewCardioStats(){
 if(!EXTRA_COLLS.includes("customs")){ EXTRA_COLLS.push("customs"); state.customs=state.customs||{} }
 
 /* ---------- silhouette face / dos (polygones, côté gauche puis miroir) ---------- */
-const BODY={
-  front:{
-    neutral:[
-      {c:"head"},
-      {p:[[91,50],[109,50],[112,64],[88,64]]},
-      {p:[[54,136],[64,142],[60,176],[52,192],[44,188],[46,156]],m2:1},
-      {p:[[44,192],[54,194],[54,210],[46,214],[40,206]],m2:1},
-      {p:[[84,184],[116,184],[112,198],[100,206],[88,198]]},
-      {p:[[80,286],[95,286],[95,301],[80,301]],m2:1},
-      {p:[[78,382],[90,382],[94,396],[74,398]],m2:1}
-    ],
-    muscles:[
-      {m:"Épaules",p:[[70,66],[86,64],[84,84],[72,100],[62,96],[60,80]],m2:1},
-      {m:"Pecs",p:[[87,66],[99,69],[99,98],[88,104],[74,99],[75,88],[84,80]],m2:1},
-      {m:"Biceps",p:[[60,99],[72,103],[70,130],[63,140],[54,132],[54,110]],m2:1},
-      {m:"Abdos",p:[[87,106],[113,106],[116,150],[112,180],[100,188],[88,180],[84,150]]},
-      {m:"Abdos",p:[[74,102],[85,107],[83,150],[86,178],[78,168],[72,132]],m2:1},
-      {m:"Quadriceps",p:[[78,192],[98,198],[97,250],[93,283],[80,284],[72,256],[72,214]],m2:1},
-      {m:"Mollets",p:[[78,303],[94,303],[92,350],[88,380],[80,380],[76,340]],m2:1}
-    ],
-    lines:[[[100,108],[100,186]],[[88,124],[112,124]],[[87,142],[113,142]],[[87,160],[113,160]]]
-  },
-  back:{
-    neutral:[
-      {c:"head"},
-      {p:[[54,136],[64,142],[60,176],[52,192],[44,188],[46,156]],m2:1},
-      {p:[[44,192],[54,194],[54,210],[46,214],[40,206]],m2:1},
-      {p:[[80,286],[95,286],[95,301],[80,301]],m2:1},
-      {p:[[78,382],[90,382],[94,396],[74,398]],m2:1}
-    ],
-    muscles:[
-      {m:"Dos",p:[[90,50],[110,50],[126,68],[100,86],[74,68]]},
-      {m:"Épaules",p:[[66,68],[79,66],[80,86],[70,99],[60,93],[60,78]],m2:1},
-      {m:"Dos",p:[[81,72],[99,88],[99,140],[88,150],[76,128],[72,102],[78,90]],m2:1},
-      {m:"Dos",p:[[88,150],[112,150],[114,178],[100,184],[86,178]]},
-      {m:"Triceps",p:[[58,98],[70,102],[70,128],[62,138],[54,130],[54,108]],m2:1},
-      {m:"Fessiers",p:[[76,182],[99,186],[99,222],[86,229],[74,214]],m2:1},
-      {m:"Ischios",p:[[74,229],[98,231],[96,276],[89,286],[78,284],[72,256]],m2:1},
-      {m:"Mollets",p:[[76,303],[94,303],[96,330],[90,362],[82,364],[74,334]],m2:1}
-    ],
-    lines:[[[100,88],[100,148]]]
-  }
-};
-function mirrorPts(p){ return p.map(([x,y])=>[200-x,y]) }
-function ptsStr(p){ return p.map(xy=>xy.join(",")).join(" ") }
-/* opts : fill(m) -> couleur, sel:Set, click:bool, label */
-function bodySVG(view,opts){
-  const B=BODY[view], o=opts||{}, out=[];
-  const neutralFill="var(--sunk)", stroke="var(--surface)";
-  B.neutral.forEach(n=>{
-    if(n.c==="head"){ out.push(`<ellipse cx="100" cy="30" rx="16" ry="20" fill="${neutralFill}"/>`); return }
-    out.push(`<polygon points="${ptsStr(n.p)}" fill="${neutralFill}" stroke="${stroke}" stroke-width="1.5" stroke-linejoin="round"/>`);
-    if(n.m2) out.push(`<polygon points="${ptsStr(mirrorPts(n.p))}" fill="${neutralFill}" stroke="${stroke}" stroke-width="1.5" stroke-linejoin="round"/>`);
-  });
-  B.muscles.forEach(mu=>{
-    const f=o.fill?o.fill(mu.m):"var(--line)", on=o.sel&&o.sel.has(mu.m);
-    const attrs=`data-bodym="${mu.m}" fill="${f}" stroke="${on?"var(--fg)":stroke}" stroke-width="${on?2.5:1.5}" stroke-linejoin="round" class="bm${on?" on":""}"${o.click?` role="button" tabindex="0" aria-label="${mu.m}"`:""}`;
-    out.push(`<polygon points="${ptsStr(mu.p)}" ${attrs}><title>${mu.m}</title></polygon>`);
-    if(mu.m2) out.push(`<polygon points="${ptsStr(mirrorPts(mu.p))}" ${attrs}><title>${mu.m}</title></polygon>`);
-  });
-  (B.lines||[]).forEach(l=>out.push(`<polyline points="${ptsStr(l)}" fill="none" stroke="${stroke}" stroke-width="1.2" opacity=".7" pointer-events="none"/>`));
-  return `<svg viewBox="30 0 140 405" class="bodysvg${o.click?" clickable":""}" role="img" aria-label="Corps vu de ${view==="front"?"face":"dos"}">${out.join("")}</svg>`;
-}
-
 /* ---------- ce qui a été travaillé : muscu + cardio + sports ---------- */
 const ACT_MUSCLES={
   run:[["Quadriceps",.5],["Ischios",.5],["Mollets",1],["Fessiers",.5]], walk:[["Mollets",.5],["Quadriceps",.5]],
@@ -3339,25 +3314,6 @@ function muscleLog(days){
   });
   return log;
 }
-const HEAT=[{max:1,c:"#D64545",l:"Aujourd'hui ou hier · en récupération"},{max:3,c:"#E8913A",l:"Il y a 2 à 3 jours"},{max:6,c:"#4FA36B",l:"Il y a 4 à 6 jours · prêt"},{max:13,c:"#6F9FC8",l:"Il y a 1 à 2 semaines"},{max:1e9,c:"#B9C3CC",l:"Plus de 2 semaines ou jamais"}];
-function heatOf(L){ if(!L||!L.last) return HEAT[4]; const d=diffDays(L.last,todayKey()); return HEAT.find(h=>d<=h.max) }
-const bm={view:"front",sel:"",mode:"recup"};
-function bodyMapCardHTML(){
-  const log=muscleLog(28);
-  const fill=m=>{ if(bm.mode==="volume"){ const v=log[m].eff7; return v<=0?"#D5DCE2":v<5?"#BFD7EA":v<10?"#7FB2DA":v<16?"#3D85C6":"#1F5F7A" } return heatOf(log[m]).c };
-  const sel=bm.sel?new Set([bm.sel]):new Set();
-  const L=bm.sel?log[bm.sel]:null;
-  const detail=L?`<div class="bmdetail"><b>${bm.sel}</b><span class="meta">${L.last?`Dernier travail direct : ${fmtLong.format(parseKey(L.last))} (il y a ${diffDays(L.last,todayKey())} j)`:"Pas de travail direct sur 4 semaines"} · ${fmt(L.eff7,1)} séries effectives sur 7 jours</span>
-    ${L.items.length?`<ul class="plain">${L.items.slice(-6).reverse().map(i=>`<li>${fmtShort.format(parseKey(i.k))} · ${esc(i.n)}${i.src==="muscu"?` · ${i.sets} série${i.sets>1?"s":""}${i.w<1?" (indirect)":""}`:` · ${i.min} min${i.w<1?" (sollicité)":""}`}</li>`).join("")}</ul>`:""}
-    <button class="btn ghost" data-sbfrom="${bm.sel}">Créer une séance pour ce muscle</button></div>`:`<span class="meta">Touche un muscle pour voir le détail.</span>`;
-  return `<section class="card"><h2 class="ttl"><img class="ico" src="icons/i-muscle.webp" alt="">Carte du corps</h2>
-    <div class="chips"><button class="chip ${bm.mode==="recup"?"on":""}" data-bmmode="recup">Dernier travail</button><button class="chip ${bm.mode==="volume"?"on":""}" data-bmmode="volume">Volume 7 jours</button></div>
-    <div class="bodypair">${bodySVG("front",{fill,sel,click:true})}${bodySVG("back",{fill,sel,click:true})}</div>
-    <div class="bmlegend">${bm.mode==="recup"?HEAT.map(h=>`<span><i style="background:${h.c}"></i>${h.l}</span>`).join(""):`<span><i style="background:#D5DCE2"></i>0</span><span><i style="background:#BFD7EA"></i>1–4</span><span><i style="background:#7FB2DA"></i>5–9</span><span><i style="background:#3D85C6"></i>10–15</span><span><i style="background:#1F5F7A"></i>16+ séries</span>`}</div>
-    ${detail}
-    <span class="meta">Muscu : un muscle compte comme travaillé avec au moins une série directe. Cardio et sports : course, vélo, rameur, natation, foot… colorent les muscles qu'ils sollicitent le plus. C'est une indication, pas une mesure de ta récupération réelle.</span></section>`;
-}
-
 /* ---------- séances libres : générateur ---------- */
 const COMPOUND_PAT=new Set(["push_h","push_inc","pull_v","pull_h","press_sh","quad","lunge","hinge"]);
 const BIG=new Set(["Pecs","Dos","Épaules","Quadriceps","Ischios","Fessiers"]);
@@ -3391,7 +3347,7 @@ function generateSession(muscles,dur,equip){
 }
 function sbRecoveryWarn(){ const log=muscleLog(7); return sb.sel.filter(m=>log[m].last&&diffDays(log[m].last,todayKey())<=1) }
 function viewSessionBuilder(){
-  const sel=new Set(sb.sel), fill=m=>sel.has(m)?"var(--accent)":"var(--line)";
+  const sel=new Set(sb.sel);
   const warn=sbRecoveryWarn();
   let listHTML="";
   if(sb.list){
@@ -3407,8 +3363,8 @@ function viewSessionBuilder(){
   }
   return `${statusNotice()}${sessTabsHTML()}
   <section class="card"><div class="row" style="justify-content:space-between"><h2 style="margin:0">Créer ma séance</h2><button class="btn ghost" id="sbClose">Fermer</button></div>
-    <span class="meta">Touche les muscles à travailler.</span>
-    <div class="bodypair">${bodySVG("front",{fill,sel,click:true})}${bodySVG("back",{fill,sel,click:true})}</div>
+    <span class="meta">Touche les muscles à travailler sur le modèle ou dans la liste : tout le groupe musculaire est sélectionné.</span>
+    <div class="atseg" role="group" aria-label="Vue">${[["front","Face"],["back","Dos"],["left","Profil G"],["right","Profil D"]].map(([v,l])=>`<button class="${atl.view===v?"on":""}" data-atview="${v}">${l}</button>`).join("")}</div>${atStageHTML("pick")}
     <div class="chips">${MUSCLES.map(m=>`<button class="chip ${sel.has(m)?"on":""}" data-sbm="${m}">${m}</button>`).join("")}</div>
     ${warn.length?`<span class="fwarn warn">${warn.join(", ")} ${warn.length>1?"ont":"a"} été travaillé${warn.length>1?"s":""} aujourd'hui ou hier : idéalement, laisse 48 h avant de les retravailler en direct.</span>`:""}
     <span class="lbl">Durée</span><div class="chips">${[30,45,60,75].map(d=>`<button class="chip ${sb.dur===d?"on":""}" data-sbdur="${d}">${d} min</button>`).join("")}</div>
@@ -3453,9 +3409,613 @@ function weekExtraRows(w){
   <div class="td"><img class="ico" src="icons/i-dumbbell.webp" alt=""><span class="t">Volume de muscu</span><span class="v">${tot} séries effectives</span><span></span></div>`;
 }
 
-app.addEventListener("click",e=>{ const g=e.target.closest&&e.target.closest("[data-bodym]"); if(!g) return; const m=g.getAttribute("data-bodym");
-  if(sb.open&&state.tab==="seance"){ sb.sel=sb.sel.includes(m)?sb.sel.filter(x=>x!==m):sb.sel.concat([m]) } else bm.sel=bm.sel===m?"":m; render() });
-app.addEventListener("keydown",e=>{ if((e.key==="Enter"||e.key===" ")&&e.target.getAttribute&&e.target.getAttribute("data-bodym")){ e.preventDefault(); e.target.dispatchEvent(new MouseEvent("click",{bubbles:true})) } });
+/* =====================  ATLAS 3D : moteur d'affichage (three.js)  ===================== */
+/* Maillages : BodyParts3D © DBCLS (CC BY-SA 2.1 JP), via le projet « Anatomía en capas » (CC BY-SA 4.0), simplifiés pour Winter Arc. */
+function createAtlas3D(THREE, dec, buf, opt){
+  opt = opt || {};
+  const dv = new DataView(buf), hl = dv.getUint32(4, true);
+  const head = JSON.parse(new TextDecoder().decode(new Uint8Array(buf, 8, hl)));
+  const base = 8 + hl + ((4 - hl % 4) % 4), mn = head.mn, mx = head.mx, sc = [0,1,2].map(k => (mx[k] - mn[k]) / 65535);
+  const canvas = document.createElement("canvas"); canvas.className = "atlas-cv";
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance", preserveDrawingBuffer: false });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setClearColor(0x000000, 0);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(26, 1, 0.05, 20);
+  scene.add(new THREE.HemisphereLight(0xdfe8ef, 0x0f1418, 0.36));
+  const key = new THREE.DirectionalLight(0xffffff, 0.58); key.position.set(-1.2, 1.6, 2.2); camera.add(key);
+  const fill = new THREE.DirectionalLight(0xbcd2e0, 0.16); fill.position.set(1.8, 0.2, 1.0); camera.add(fill);
+  const rim = new THREE.DirectionalLight(0x9fc4dc, 0.34); rim.position.set(0.4, 1.2, -2.5); camera.add(rim);
+  scene.add(camera);
+  const root = new THREE.Group(); scene.add(root);
+
+  /* ---- décodage ---- */
+  function decodeItem(m){
+    const [c, sd, a, d, t, vc, ic, vo, vl, io, il] = m;
+    const V = new Uint16Array(vc * 4), I = new Uint32Array(ic);
+    dec.decodeVertexBuffer(new Uint8Array(V.buffer), vc, 8, new Uint8Array(buf, base + vo, vl));
+    dec.decodeIndexBuffer(new Uint8Array(I.buffer), ic, 4, new Uint8Array(buf, base + io, il));
+    const P = new Float32Array(vc * 3);
+    for(let i = 0; i < vc; i++) for(let k = 0; k < 3; k++) P[i * 3 + k] = mn[k] + V[i * 4 + k] * sc[k];
+    return { c, sd, a, d, t, P, I };
+  }
+  function geom(P, I, col){
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(P, 3));
+    if(col) g.setAttribute("color", new THREE.BufferAttribute(col, 3));
+    g.setIndex(new THREE.BufferAttribute(I, 1)); g.computeVertexNormals(); g.computeBoundingSphere(); g.computeBoundingBox();
+    return g;
+  }
+  const items = head.m.map(decodeItem);
+
+  /* ---- muscles suivis : un matériau par muscle, partagé par les deux côtés ---- */
+  const mats = {}, meshes = [], byA = {}, pick = [];
+  function matFor(a, vc){
+    const k = a + (vc ? "#vc" : "");
+    if(!mats[k]) mats[k] = new THREE.MeshStandardMaterial({ color: 0x8b949e, roughness: 0.58, metalness: 0.0, vertexColors: !!vc });
+    mats[k].userData.a = a; return mats[k];
+  }
+  const segs = opt.segments || {};
+  items.filter(it => it.a).forEach(it => {
+    let col = null;
+    if(segs[it.a]){ // segments visuels (intersections tendineuses du grand droit)
+      let y0 = 1e9, y1 = -1e9; for(let i = 1; i < it.P.length; i += 3){ y0 = Math.min(y0, it.P[i]); y1 = Math.max(y1, it.P[i]) }
+      const cuts = segs[it.a].map(f => y0 + f * (y1 - y0)), w = (y1 - y0) * 0.012;
+      col = new Float32Array(it.P.length);
+      for(let i = 0; i < it.P.length / 3; i++){ const y = it.P[i * 3 + 1]; let f = 1; cuts.forEach(cy => { const dd = Math.abs(y - cy); if(dd < w * 2.2) f = Math.min(f, 0.42 + 0.58 * (dd / (w * 2.2)) ** 1.6) }); col[i*3] = col[i*3+1] = col[i*3+2] = f }
+    }
+    const mesh = new THREE.Mesh(geom(it.P, it.I, col), matFor(it.a, !!col));
+    mesh.userData = { a: it.a, c: it.c, sd: it.sd, d: it.d };
+    root.add(mesh); meshes.push(mesh); pick.push(mesh); (byA[it.a] = byA[it.a] || []).push(mesh);
+  });
+  /* ---- contexte : muscles non suivis, tendons, squelette (fusionnés par couche) ---- */
+  const ctxMat = {
+    m: new THREE.MeshStandardMaterial({ color: 0x3b444c, roughness: 0.75 }),
+    t: new THREE.MeshStandardMaterial({ color: 0x7d878e, roughness: 0.5 }),
+    b: new THREE.MeshStandardMaterial({ color: 0x7a7466, roughness: 0.85 })
+  };
+  const ctx = [];
+  const groups = {};
+  items.filter(it => !it.a).forEach(it => { let x = 0, y = 0; const n = it.P.length / 3; for(let i = 0; i < it.P.length; i += 3){ x += it.P[i]; y += it.P[i + 1] }
+    const k = it.t + it.d + ":" + Math.floor(x / n / 0.16) + ":" + Math.floor(y / n / 0.22); (groups[k] = groups[k] || []).push(it) });
+  Object.entries(groups).forEach(([k, list]) => {
+    let nv = 0, ni = 0; list.forEach(it => { nv += it.P.length; ni += it.I.length });
+    const P = new Float32Array(nv), I = new Uint32Array(ni), owners = []; let ov = 0, oi = 0;
+    list.forEach(it => { P.set(it.P, ov); for(let i = 0; i < it.I.length; i++) I[oi + i] = it.I[i] + ov / 3; owners.push([oi / 3, it.c, it.sd]); ov += it.P.length; oi += it.I.length });
+    const mesh = new THREE.Mesh(geom(P, I), ctxMat[list[0].t]);
+    mesh.userData = { ctx: true, t: list[0].t, d: list[0].d, owners };
+    root.add(mesh); ctx.push(mesh); pick.push(mesh);
+  });
+  /* centrage */
+  const box = new THREE.Box3().setFromObject(root), H = box.max.y - box.min.y;
+  const center = new THREE.Vector3((box.min.x + box.max.x) / 2, (box.min.y + box.max.y) / 2, (box.min.z + box.max.z) / 2);
+
+  /* ---- caméra orbitale ---- */
+  const VIEWS = { front: 0, back: Math.PI, left: Math.PI / 2, right: -Math.PI / 2 };
+  const cam = { yaw: 0, pitch: 0.04, dist: 1, tx: center.x, ty: center.y, tz: center.z, anim: null };
+  let W = 300, Hh = 400, fitDist = 4;
+  function fit(){ const vf = THREE.MathUtils.degToRad(camera.fov) / 2, asp = W / Hh;
+    const dH = (H * 0.54) / Math.tan(vf), dW = (0.46) / (Math.tan(vf) * asp); fitDist = Math.max(dH, dW) * 1.04; }
+  function place(){ const cp = Math.cos(cam.pitch);
+    camera.position.set(cam.tx + cam.dist * Math.sin(cam.yaw) * cp, cam.ty + cam.dist * Math.sin(cam.pitch), cam.tz + cam.dist * Math.cos(cam.yaw) * cp);
+    camera.lookAt(cam.tx, cam.ty, cam.tz); }
+  let dirty = true, raf = 0;
+  function req(){ dirty = true; if(!raf) raf = requestAnimationFrame(frame) }
+  function frame(t){ raf = 0;
+    if(cam.anim){ const A = cam.anim, k = Math.min(1, (t - (A.t0 || (A.t0 = t))) / A.ms), e = k < .5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
+      Object.keys(A.to).forEach(p => cam[p] = A.from[p] + (A.to[p] - A.from[p]) * e);
+      if(k >= 1) cam.anim = null; dirty = true; }
+    if(dirty){ place(); renderer.render(scene, camera); dirty = false }
+    if(cam.anim) raf = requestAnimationFrame(frame);
+  }
+  function animTo(to, ms){ const from = {}; Object.keys(to).forEach(p => from[p] = cam[p]);
+    if(to.yaw != null){ let d = to.yaw - cam.yaw; d = ((d + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI; to.yaw = cam.yaw + d }
+    cam.anim = { from, to, ms: ms || 520 }; req(); }
+  function setView(v, instant){ const to = { yaw: VIEWS[v] != null ? VIEWS[v] : 0, pitch: 0.04, dist: fitDist, tx: center.x, ty: center.y, tz: center.z };
+    if(instant){ Object.assign(cam, to); req() } else animTo(to) }
+  function focusOn(a, v){ const ms = byA[a]; if(!ms) return; const b = new THREE.Box3(); ms.forEach(m => b.expandByObject(m));
+    const c = b.getCenter(new THREE.Vector3()), s = b.getSize(new THREE.Vector3());
+    const vf = THREE.MathUtils.degToRad(camera.fov) / 2, ext = Math.max(s.y, Math.max(s.x, s.z) / (W / Hh)) * 0.5;
+    const d = Math.min(fitDist, Math.max(fitDist * 0.32, ext / Math.tan(vf) * 2.4));
+    animTo({ yaw: VIEWS[v] != null ? VIEWS[v] : cam.yaw, pitch: 0.04, dist: d, tx: c.x * 0.5 + center.x * 0.5, ty: c.y, tz: center.z }); }
+  function resize(){ const r = canvas.parentNode ? canvas.parentNode.getBoundingClientRect() : { width: 300, height: 400 };
+    const w = Math.max(100, Math.round(r.width)), h = Math.max(160, Math.round(r.height));
+    if(w === W && h === Hh) return; const first = W === 300 && Hh === 400; W = w; Hh = h;
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); const old = fitDist; fit();
+    cam.dist = first ? fitDist : cam.dist * fitDist / old; req(); }
+  const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(resize) : null;
+
+  /* ---- couches : 0 superficiel, 1 intermédiaire (retire d1), 2 profond (retire d1 et d2) ---- */
+  let layer = 0;
+  function setLayer(L){ layer = L; meshes.concat(ctx).forEach(m => { const d = m.userData.d; m.visible = !(d === 1 && L >= 1) && !(d === 2 && L >= 2) }); req() }
+
+  /* ---- couleurs ---- */
+  const tmp = new THREE.Color(), dark = new THREE.Color(0x1b2228);
+  let colors = {}, dims = null, hover = "", sel = "";
+  function hash(s){ let h = 0; for(let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return ((h >>> 0) % 1000) / 1000 }
+  function paint(){
+    Object.values(mats).forEach(m => { const a = m.userData.a;
+      tmp.set(colors[a] || "#8b949e"); const j = 0.94 + hash(a) * 0.12; tmp.multiplyScalar(j);
+      if(dims && !dims.has(a)) tmp.lerp(dark, 0.72);
+      m.color.copy(tmp);
+      m.emissive.setHex(a === sel ? 0x3a3a3a : a === hover ? 0x262626 : 0x000000);
+    });
+    req();
+  }
+  function setColors(map, dimSet){ colors = map || {}; dims = dimSet || null; paint() }
+
+  /* ---- sélection au toucher / survol ---- */
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  function hitAt(x, y){
+    const r = canvas.getBoundingClientRect(); ndc.set(((x - r.left) / r.width) * 2 - 1, -((y - r.top) / r.height) * 2 + 1);
+    place(); ray.setFromCamera(ndc, camera);
+    const hits = ray.intersectObjects(pick.filter(m => m.visible), false); if(!hits.length) return null;
+    const h = hits[0], u = h.object.userData;
+    if(u.a) return { a: u.a, c: u.c, sd: u.sd };
+    if(u.t === "b") return null;
+    const fi = h.faceIndex; let o = u.owners[0]; for(const w of u.owners){ if(w[0] <= fi) o = w; else break }
+    return { ctx: true, c: o[1], sd: o[2], name: (head.names || {})[o[1]] || "Muscle" };
+  }
+  const ptrs = new Map(); let gest = null, lastHover = "";
+  function onDown(e){ canvas.setPointerCapture && canvas.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if(ptrs.size === 1) gest = { x0: e.clientX, y0: e.clientY, t0: performance.now(), moved: false, btn: e.button, type: e.pointerType, yaw: cam.yaw, pitch: cam.pitch, tx: cam.tx, ty: cam.ty };
+    else if(ptrs.size === 2){ const [a, b] = [...ptrs.values()]; gest = { pinch: Math.hypot(a.x - b.x, a.y - b.y), dist: cam.dist, mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2, tx: cam.tx, ty: cam.ty, moved: true } }
+    cam.anim = null; }
+  function onMove(e){
+    if(!ptrs.has(e.pointerId)){ if(e.pointerType === "mouse" && opt.onHover){ hovEv = e; if(!hovRaf) hovRaf = requestAnimationFrame(doHover) } return }
+    moveDrag(e) }
+  let hovEv = null, hovRaf = 0;
+  function doHover(){ hovRaf = 0; const e = hovEv; if(!e || ptrs.size) return; { const h = hitAt(e.clientX, e.clientY); const k = h ? (h.a || "ctx" + h.c) : "";
+        if(k !== lastHover){ lastHover = k; hover = h && h.a ? h.a : ""; paint(); canvas.style.cursor = h ? "pointer" : "grab" } opt.onHover(h, e.clientX, e.clientY) } }
+  function moveDrag(e){
+    ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY }); if(!gest) return;
+    const per = (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * cam.dist) / Hh;
+    if(ptrs.size >= 2 && gest.pinch){ const [a, b] = [...ptrs.values()], d = Math.hypot(a.x - b.x, a.y - b.y);
+      cam.dist = Math.min(fitDist * 1.3, Math.max(fitDist * 0.16, gest.dist * gest.pinch / Math.max(20, d)));
+      const mxx = (a.x + b.x) / 2, myy = (a.y + b.y) / 2; panBy(gest, mxx - gest.mx, myy - gest.my, per); req(); return }
+    const dx = e.clientX - gest.x0, dy = e.clientY - gest.y0; if(Math.abs(dx) + Math.abs(dy) > 6) gest.moved = true; if(!gest.moved) return;
+    if(gest.btn === 2 || e.shiftKey){ panBy(gest, dx, dy, per) }
+    else { cam.yaw = gest.yaw - dx * 0.0105; if(opt.pitch !== false || full) cam.pitch = Math.max(-0.7, Math.min(0.9, gest.pitch + dy * 0.006)) }
+    req(); if(opt.onHover) opt.onHover(null); }
+  function panBy(g, dx, dy, per){ const rx = Math.cos(cam.yaw), rz = -Math.sin(cam.yaw);
+    cam.tx = g.tx - dx * per * rx; cam.tz = center.z - dx * per * rz * 0; cam.ty = Math.max(box.min.y, Math.min(box.max.y, g.ty + dy * per)); }
+  function onUp(e){ const g = gest; ptrs.delete(e.pointerId);
+    if(ptrs.size === 0){ if(g && !g.moved && performance.now() - g.t0 < 600 && opt.onPick){ const h = hitAt(e.clientX, e.clientY); opt.onPick(h, e.pointerType) } gest = null }
+    else if(ptrs.size === 1){ const [p] = [...ptrs.values()]; gest = { x0: p.x, y0: p.y, t0: 0, moved: true, yaw: cam.yaw, pitch: cam.pitch, tx: cam.tx, ty: cam.ty } } }
+  function onCancel(e){ ptrs.delete(e.pointerId); if(!ptrs.size) gest = null }
+  function onWheel(e){ e.preventDefault(); cam.anim = null; cam.dist = Math.min(fitDist * 1.3, Math.max(fitDist * 0.16, cam.dist * Math.exp(e.deltaY * 0.0012))); req() }
+  function onLeave(){ if(lastHover){ lastHover = ""; hover = ""; paint() } if(opt.onHover) opt.onHover(null) }
+  canvas.addEventListener("pointerdown", onDown); canvas.addEventListener("pointermove", onMove);
+  canvas.addEventListener("pointerup", onUp); canvas.addEventListener("pointercancel", onCancel);
+  canvas.addEventListener("pointerleave", onLeave); canvas.addEventListener("wheel", onWheel, { passive: false });
+  canvas.addEventListener("contextmenu", e => e.preventDefault());
+  let full = false;
+
+  /* ---- vue isolée d'un muscle (image pour la fiche) ---- */
+  const snaps = {};
+  function snapshot(a, v, color){
+    const k = a + "|" + v + "|" + color; if(snaps[k]) return snaps[k];
+    const ms = byA[a]; if(!ms) return "";
+    const side = ms.filter(m => m.userData.sd !== "D").length ? ms.filter(m => v === "right" ? m.userData.sd !== "I" : m.userData.sd !== "D") : ms;
+    const list = side.length ? side : ms;
+    const s2 = new THREE.Scene(), c2 = new THREE.PerspectiveCamera(24, 4 / 3, 0.02, 20);
+    s2.add(new THREE.HemisphereLight(0xe6eef4, 0x1a2228, 0.7)); const k2 = new THREE.DirectionalLight(0xffffff, 0.85); k2.position.set(-1, 1.5, 2); c2.add(k2); s2.add(c2);
+    const ghost = new THREE.MeshBasicMaterial({ color: 0x6f7b85, transparent: true, opacity: 0.16, depthWrite: false });
+    const mm = new THREE.MeshStandardMaterial({ color: new THREE.Color(color || "#c9504f"), roughness: 0.5, vertexColors: list[0].material.vertexColors });
+    ctx.filter(m => m.userData.t === "b").forEach(m => s2.add(new THREE.Mesh(m.geometry, ghost)));
+    const b = new THREE.Box3(); list.forEach(m => { s2.add(new THREE.Mesh(m.geometry, mm)); b.expandByObject(m) });
+    const c = b.getCenter(new THREE.Vector3()), sz = b.getSize(new THREE.Vector3()), yaw = VIEWS[v] != null ? VIEWS[v] : 0;
+    const vf = THREE.MathUtils.degToRad(c2.fov) / 2, ext = Math.max(sz.y / 2, Math.max(sz.x, sz.z) / 2 / (4 / 3)) * 1.25;
+    const d = ext / Math.tan(vf); c2.position.set(c.x + d * Math.sin(yaw), c.y + d * 0.06, c.z + d * Math.cos(yaw)); c2.lookAt(c);
+    const w = 480, h = 360, rt = new THREE.WebGLRenderTarget(w, h, { samples: 4 });
+    renderer.setRenderTarget(rt); renderer.setClearColor(0x0f161b, 1); renderer.clear(); renderer.render(s2, c2);
+    const px = new Uint8Array(w * h * 4); renderer.readRenderTargetPixels(rt, 0, 0, w, h, px);
+    renderer.setRenderTarget(null); renderer.setClearColor(0x000000, 0); rt.dispose(); mm.dispose(); ghost.dispose();
+    const cv = document.createElement("canvas"); cv.width = w; cv.height = h; const g = cv.getContext("2d"), img = g.createImageData(w, h);
+    for(let y = 0; y < h; y++) img.data.set(px.subarray((h - 1 - y) * w * 4, (h - y) * w * 4), y * w * 4);
+    g.putImageData(img, 0, 0); req();
+    return snaps[k] = cv.toDataURL("image/png");
+  }
+
+  return {
+    canvas, items: items.length,
+    tris: meshes.concat(ctx).reduce((a, m) => a + m.geometry.index.count / 3, 0),
+    mount(host){ if(canvas.parentNode !== host) host.appendChild(canvas); if(ro){ ro.disconnect(); ro.observe(host) } resize(); req() },
+    resize, setView, focusOn, setLayer, setColors,
+    setSel(a){ sel = a || ""; paint() },
+    setHover(a){ hover = a || ""; paint() },
+    setFull(f){ full = !!f; setTimeout(resize, 30) },
+    zoom(f){ cam.anim = null; cam.dist = Math.min(fitDist * 1.3, Math.max(fitDist * 0.16, cam.dist * f)); req() },
+    snapshot, has: a => !!byA[a], render: req,
+    probe(a){ const ms = byA[a]; if(!ms) return null; place(); camera.updateMatrixWorld(); const r = canvas.getBoundingClientRect(), v = new THREE.Vector3();
+      for(const m of ms){ if(!m.visible) continue; const P = m.geometry.attributes.position, step = Math.max(1, Math.floor(P.count / 30));
+        for(let i = 0; i < P.count; i += step){ v.fromBufferAttribute(P, i).project(camera); if(Math.abs(v.x) > .97 || Math.abs(v.y) > .97) continue;
+          const x = r.left + (v.x + 1) / 2 * r.width, y = r.top + (1 - v.y) / 2 * r.height; if(y < 0 || y > innerHeight - 4 || x > r.right - 54 && y < r.top + 210) continue; const h = hitAt(x, y); if(h && h.a === a) return { x, y, c: h.c } } }
+      return null },
+    view: () => ({ yaw: cam.yaw, dist: cam.dist, fit: fitDist, layer }),
+    shot(){ place(); renderer.render(scene, camera); return canvas.toDataURL("image/png") }
+  };
+}
+
+/* =====================  ATLAS MUSCULAIRE INTERACTIF  ===================== */
+const ATLAS={"regions":[["pec","Pectoraux"],["epa","Épaules et coiffe"],["dos","Dos"],["bras","Bras"],["avb","Avant-bras"],["abd","Abdominaux et tronc"],["fes","Hanches et fessiers"],["cuisse","Cuisses"],["jambe","Jambes"]],"muscles":[{"id":"pec_clav","fr":"Grand pectoral — faisceau claviculaire","la":"Musculus pectoralis major, pars clavicularis","r":"pec","g":"Pecs","v":"front","L":0,"parts":[[68,"",1]],"fn":"Fléchit le bras vers l'avant et vers le haut, le rapproche du corps (adduction) et le tourne vers l'intérieur. C'est la portion la plus sollicitée dans les mouvements inclinés."},{"id":"pec_stern","fr":"Grand pectoral — faisceau sternocostal","la":"Musculus pectoralis major, pars sternocostalis","r":"pec","g":"Pecs","v":"front","L":0,"parts":[[467,"",1]],"fn":"Rapproche le bras du corps et le ramène devant la poitrine (adduction horizontale), le tourne vers l'intérieur. Portion principale des développés à plat et des écartés."},{"id":"pec_abd","fr":"Grand pectoral — portion abdominale","la":"Musculus pectoralis major, pars abdominalis","r":"pec","g":"Pecs","v":"front","L":0,"parts":[[18,"",1]],"fn":"Abaisse le bras levé et le ramène vers la hanche (adduction et extension depuis le bras levé). Sollicitée dans les dips, les développés déclinés et les écartés de haut en bas."},{"id":"pec_min","fr":"Petit pectoral","la":"Musculus pectoralis minor","r":"pec","g":"Pecs","v":"front","L":1,"parts":[[348,"",0]],"fn":"Abaisse l'épaule et tire l'omoplate vers l'avant et le bas. Muscle profond, recouvert par le grand pectoral."},{"id":"delt_ant","fr":"Deltoïde antérieur","la":"Musculus deltoideus, pars clavicularis","r":"epa","g":"Épaules","v":"front","L":0,"parts":[[67,"",1]],"fn":"Lève le bras vers l'avant (flexion) et le tourne vers l'intérieur. Très sollicité dans les développés épaules et, en second rôle, dans les développés pectoraux."},{"id":"delt_lat","fr":"Deltoïde latéral","la":"Musculus deltoideus, pars acromialis","r":"epa","g":"Épaules","v":"left","L":0,"parts":[[25,"",1]],"fn":"Écarte le bras sur le côté (abduction). Muscle principal des élévations latérales, il donne la largeur des épaules."},{"id":"delt_post","fr":"Deltoïde postérieur","la":"Musculus deltoideus, pars spinalis","r":"epa","g":"Épaules","v":"back","L":0,"parts":[[458,"",1]],"fn":"Tire le bras vers l'arrière (extension et abduction horizontale) et le tourne vers l'extérieur. Travaillé par l'oiseau, le face pull et les tirages."},{"id":"supra","fr":"Supra-épineux","la":"Musculus supraspinatus","r":"epa","g":"Épaules","v":"back","L":1,"parts":[[489,"",0]],"fn":"Muscle de la coiffe des rotateurs : amorce l'écartement du bras et maintient la tête de l'humérus dans l'articulation. Recouvert par le trapèze."},{"id":"infra","fr":"Infra-épineux","la":"Musculus infraspinatus","r":"epa","g":"Épaules","v":"back","L":0,"parts":[[210,"",0]],"fn":"Muscle de la coiffe des rotateurs : tourne le bras vers l'extérieur (rotation externe) et stabilise l'épaule."},{"id":"teres_min","fr":"Petit rond","la":"Musculus teres minor","r":"epa","g":"Épaules","v":"back","L":0,"parts":[[499,"",0]],"fn":"Muscle de la coiffe des rotateurs : rotation externe du bras, stabilisation de la tête humérale."},{"id":"subscap","fr":"Subscapulaire","la":"Musculus subscapularis","r":"epa","g":"Épaules","v":"front","L":2,"parts":[[477,"",0]],"fn":"Muscle de la coiffe des rotateurs, sur la face avant de l'omoplate : tourne le bras vers l'intérieur et stabilise l'épaule. Très profond, peu visible même en vue profonde."},{"id":"trap_sup","fr":"Trapèze supérieur","la":"Musculus trapezius, pars descendens","r":"dos","g":"Dos","v":"back","L":0,"parts":[[91,"",1]],"fn":"Élève et tourne l'omoplate vers le haut (haussement d'épaules, bras levé), étend et incline la tête."},{"id":"trap_mid","fr":"Trapèze moyen","la":"Musculus trapezius, pars transversa","r":"dos","g":"Dos","v":"back","L":0,"parts":[[521,"",1]],"fn":"Rapproche les omoplates de la colonne (rétraction). Travaillé par les rowings et les tirages horizontaux."},{"id":"trap_inf","fr":"Trapèze inférieur","la":"Musculus trapezius, pars ascendens","r":"dos","g":"Dos","v":"back","L":0,"parts":[[43,"",1]],"fn":"Abaisse l'omoplate et participe à sa rotation vers le haut quand le bras se lève. Stabilise les omoplates dans les tractions."},{"id":"lats","fr":"Grand dorsal","la":"Musculus latissimus dorsi","r":"dos","g":"Dos","v":"back","L":0,"parts":[[259,"",1]],"fn":"Ramène le bras vers le bas et vers l'arrière (adduction et extension), le tourne vers l'intérieur. Muscle principal des tractions et tirages verticaux."},{"id":"teres_maj","fr":"Grand rond","la":"Musculus teres major","r":"dos","g":"Dos","v":"back","L":0,"parts":[[498,"",0]],"fn":"Aide le grand dorsal : abaisse le bras, le tire vers l'arrière et le tourne vers l'intérieur."},{"id":"rhomb","fr":"Rhomboïdes","la":"Musculi rhomboidei (major et minor)","r":"dos","g":"Dos","v":"back","L":1,"parts":[[397,"Grand rhomboïde",0],[398,"Petit rhomboïde",0]],"fn":"Rapprochent les omoplates de la colonne et les remontent. Situés sous le trapèze : visibles en vue intermédiaire."},{"id":"erect","fr":"Érecteurs du rachis","la":"Musculus erector spinae (iliocostalis, longissimus, spinalis)","r":"dos","g":"Dos","v":"back","L":1,"parts":[[201,"Ilio-costal lombaire",0],[202,"Ilio-costal thoracique",0],[200,"Ilio-costal cervical",0],[273,"Longissimus thoracique",0],[271,"Longissimus de la tête",0],[272,"Longissimus cervical",0],[460,"Épineux thoracique",0],[459,"Épineux cervical",0]],"fn":"Étendent et redressent la colonne, la maintiennent gainée pendant les squats, soulevés de terre et rowings. Recouverts par le grand dorsal et le trapèze."},{"id":"bic_long","fr":"Biceps brachial — chef long","la":"Musculus biceps brachii, caput longum","r":"bras","g":"Biceps","v":"front","L":0,"parts":[[267,"",1]],"fn":"Fléchit le coude, tourne l'avant-bras paume vers le haut (supination) et participe à la flexion de l'épaule. Côté extérieur du bras, étiré dans le curl incliné."},{"id":"bic_short","fr":"Biceps brachial — chef court","la":"Musculus biceps brachii, caput breve","r":"bras","g":"Biceps","v":"front","L":0,"parts":[[449,"",1]],"fn":"Fléchit le coude et supine l'avant-bras. Côté intérieur du bras, très sollicité dans le curl pupitre et le curl concentré."},{"id":"brachialis","fr":"Brachial","la":"Musculus brachialis","r":"bras","g":"Biceps","v":"left","L":0,"parts":[[47,"",0]],"fn":"Principal fléchisseur du coude, quelle que soit la position de la main. Situé sous le biceps, visible sur les côtés du bras. Très sollicité par le curl marteau."},{"id":"brachiorad","fr":"Brachioradial","la":"Musculus brachioradialis","r":"avb","g":"Biceps","v":"left","L":0,"parts":[[50,"",0]],"fn":"Fléchit le coude, surtout main en position neutre (pouce vers le haut). Travaillé par le curl marteau et le curl prise inversée."},{"id":"tri_long","fr":"Triceps brachial — chef long","la":"Musculus triceps brachii, caput longum","r":"bras","g":"Triceps","v":"back","L":0,"parts":[[269,"",1]],"fn":"Étend le coude et ramène le bras vers l'arrière (il s'attache sur l'omoplate). Étiré et très sollicité dans les extensions au-dessus de la tête."},{"id":"tri_lat","fr":"Triceps brachial — chef latéral","la":"Musculus triceps brachii, caput laterale","r":"bras","g":"Triceps","v":"back","L":0,"parts":[[257,"",1]],"fn":"Étend le coude. Côté extérieur du bras, très sollicité par les extensions à la poulie et les développés prise serrée."},{"id":"tri_med","fr":"Triceps brachial — chef médial","la":"Musculus triceps brachii, caput mediale","r":"bras","g":"Triceps","v":"back","L":1,"parts":[[293,"",0]],"fn":"Étend le coude dans toutes les positions. En grande partie recouvert par les chefs long et latéral."},{"id":"fa_flex","fr":"Fléchisseurs de l'avant-bras","la":"Musculi flexores antebrachii","r":"avb","g":"Biceps","v":"front","L":0,"parts":[[150,"Fléchisseur radial du carpe",2],[339,"Long palmaire",2],[193,"Fléchisseur superficiel des doigts (chef huméro-ulnaire)",2],[386,"Fléchisseur superficiel des doigts (chef radial)",2],[191,"Fléchisseur ulnaire du carpe (chef huméral)",2],[533,"Fléchisseur ulnaire du carpe (chef ulnaire)",2],[192,"Rond pronateur (chef huméral)",2],[534,"Rond pronateur (chef ulnaire)",2],[155,"Fléchisseur profond des doigts",0],[157,"Long fléchisseur du pouce",0],[364,"Carré pronateur",0]],"fn":"Fléchissent le poignet et les doigts : ce sont eux qui serrent la barre (préhension). Le rond et le carré pronateurs tournent la paume vers le bas."},{"id":"fa_ext","fr":"Extenseurs de l'avant-bras","la":"Musculi extensores antebrachii","r":"avb","g":"Biceps","v":"back","L":0,"parts":[[113,"Long extenseur radial du carpe",2],[112,"Court extenseur radial du carpe",2],[115,"Extenseur des doigts",2],[114,"Extenseur du petit doigt",2],[190,"Extenseur ulnaire du carpe (chef huméral)",2],[532,"Extenseur ulnaire du carpe (chef ulnaire)",2],[23,"Long abducteur du pouce",0],[121,"Court extenseur du pouce",0],[122,"Long extenseur du pouce",0],[120,"Extenseur de l'index",0],[487,"Supinateur",0]],"fn":"Étendent le poignet et les doigts et stabilisent le poignet pendant les tirages et les curls. Le supinateur tourne la paume vers le haut."},{"id":"rectus","fr":"Grand droit de l'abdomen","la":"Musculus rectus abdominis","r":"abd","g":"Abdos","v":"front","L":0,"parts":[[389,"",0]],"fn":"Fléchit le tronc (enroulement du buste ou du bassin) et gaine l'abdomen. Ses segments (les « carrés ») sont séparés par des intersections tendineuses."},{"id":"ext_obl","fr":"Oblique externe","la":"Musculus obliquus externus abdominis","r":"abd","g":"Abdos","v":"left","L":0,"parts":[[127,"",1]],"fn":"Tourne et incline le tronc, résiste aux rotations (gainage latéral, Pallof press) et comprime l'abdomen."},{"id":"int_obl","fr":"Oblique interne","la":"Musculus obliquus internus abdominis","r":"abd","g":"Abdos","v":"left","L":1,"parts":[[220,"",2]],"fn":"Tourne le tronc du même côté, l'incline et gaine l'abdomen. Situé sous l'oblique externe."},{"id":"transv","fr":"Transverse de l'abdomen","la":"Musculus transversus abdominis","r":"abd","g":"Abdos","v":"left","L":2,"parts":[[522,"",0]],"fn":"Muscle le plus profond de la paroi abdominale : il comprime l'abdomen et stabilise la colonne (gainage, rentrer le ventre)."},{"id":"serratus","fr":"Dentelé antérieur","la":"Musculus serratus anterior","r":"abd","g":"Pecs","v":"left","L":0,"parts":[[423,"",0]],"fn":"Plaque l'omoplate contre les côtes et l'avance (protraction), participe à sa rotation quand le bras se lève. Sollicité par les pompes, les développés et la roue abdominale."},{"id":"glute_max","fr":"Grand fessier","la":"Musculus gluteus maximus","r":"fes","g":"Fessiers","v":"back","L":0,"parts":[[181,"",1]],"fn":"Étend la hanche (redresser le bassin, monter un escalier), la tourne vers l'extérieur. Muscle principal du hip thrust, très sollicité dans le squat profond et les fentes."},{"id":"glute_med","fr":"Moyen fessier","la":"Musculus gluteus medius","r":"fes","g":"Fessiers","v":"back","L":0,"parts":[[182,"",2]],"fn":"Écarte la cuisse (abduction) et stabilise le bassin quand on est en appui sur une jambe (fentes, course)."},{"id":"glute_min","fr":"Petit fessier","la":"Musculus gluteus minimus","r":"fes","g":"Fessiers","v":"back","L":2,"parts":[[183,"",0]],"fn":"Abduction et stabilisation du bassin, avec le moyen fessier sous lequel il est caché. Visible en vue profonde."},{"id":"tfl","fr":"Tenseur du fascia lata","la":"Musculus tensor fasciae latae","r":"fes","g":"Fessiers","v":"left","L":0,"parts":[[495,"",0]],"fn":"Fléchit et écarte la hanche, tend la bandelette ilio-tibiale qui stabilise le genou."},{"id":"iliopsoas","fr":"Ilio-psoas","la":"Musculus iliopsoas (iliacus et psoas major)","r":"fes","g":"Abdos","v":"front","L":2,"parts":[[198,"Iliaque",0],[376,"Grand psoas",0]],"fn":"Principal fléchisseur de la hanche (lever le genou, relevés de jambes). Muscle profond, visible seulement en vue profonde."},{"id":"rf","fr":"Droit fémoral","la":"Musculus rectus femoris","r":"cuisse","g":"Quadriceps","v":"front","L":0,"parts":[[394,"",1]],"fn":"Chef du quadriceps qui étend le genou et fléchit aussi la hanche. Très sollicité par le leg extension."},{"id":"vl","fr":"Vaste latéral","la":"Musculus vastus lateralis","r":"cuisse","g":"Quadriceps","v":"left","L":0,"parts":[[547,"",2]],"fn":"Plus gros chef du quadriceps, côté extérieur de la cuisse : étend le genou."},{"id":"vm","fr":"Vaste médial","la":"Musculus vastus medialis","r":"cuisse","g":"Quadriceps","v":"front","L":0,"parts":[[548,"",2]],"fn":"Chef du quadriceps côté intérieur (la « goutte » au-dessus du genou) : étend le genou et stabilise la rotule."},{"id":"vi","fr":"Vaste intermédiaire","la":"Musculus vastus intermedius","r":"cuisse","g":"Quadriceps","v":"front","L":1,"parts":[[546,"",0]],"fn":"Chef profond du quadriceps, sous le droit fémoral : étend le genou. Visible en vue intermédiaire et profonde."},{"id":"sartorius","fr":"Sartorius","la":"Musculus sartorius","r":"cuisse","g":"Quadriceps","v":"front","L":0,"parts":[[401,"",1]],"fn":"Plus long muscle du corps : fléchit la hanche et le genou, tourne la cuisse vers l'extérieur (position assis en tailleur)."},{"id":"add","fr":"Adducteurs","la":"Musculi adductores (longus, brevis, magnus), gracilis, pectineus","r":"cuisse","g":"Fessiers","v":"front","L":0,"parts":[[27,"Long adducteur",2],[184,"Gracile",2],[347,"Pectiné",2],[26,"Court adducteur",0],[28,"Grand adducteur",0],[29,"Petit adducteur",0]],"fn":"Rapprochent les cuisses (adduction). Le grand adducteur aide aussi à étendre la hanche dans le squat et le soulevé de terre."},{"id":"bf","fr":"Biceps fémoral","la":"Musculus biceps femoris (caput longum et breve)","r":"cuisse","g":"Ischios","v":"back","L":0,"parts":[[268,"Biceps fémoral — chef long",1],[450,"Biceps fémoral — chef court",0]],"fn":"Ischio-jambier côté extérieur : fléchit le genou ; le chef long étend aussi la hanche (soulevé de terre roumain)."},{"id":"st","fr":"Semi-tendineux","la":"Musculus semitendinosus","r":"cuisse","g":"Ischios","v":"back","L":0,"parts":[[420,"",1]],"fn":"Ischio-jambier côté intérieur : fléchit le genou et étend la hanche. Très sollicité par le leg curl et le nordic curl."},{"id":"sm","fr":"Semi-membraneux","la":"Musculus semimembranosus","r":"cuisse","g":"Ischios","v":"back","L":0,"parts":[[415,"",0]],"fn":"Ischio-jambier profond côté intérieur : fléchit le genou et étend la hanche."},{"id":"gast_med","fr":"Gastrocnémien — chef médial","la":"Musculus gastrocnemius, caput mediale","r":"jambe","g":"Mollets","v":"back","L":0,"parts":[[292,"",1]],"fn":"Pointe le pied (extension de la cheville) et participe à la flexion du genou. Travaillé jambe tendue : mollets debout."},{"id":"gast_lat","fr":"Gastrocnémien — chef latéral","la":"Musculus gastrocnemius, caput laterale","r":"jambe","g":"Mollets","v":"back","L":0,"parts":[[256,"",1]],"fn":"Pointe le pied et participe à la flexion du genou. Côté extérieur du mollet."},{"id":"soleus","fr":"Soléaire","la":"Musculus soleus","r":"jambe","g":"Mollets","v":"back","L":0,"parts":[[456,"",0]],"fn":"Pointe le pied, surtout genou plié (mollets assis). Très sollicité en course à pied et en marche."},{"id":"tib_ant","fr":"Tibial antérieur","la":"Musculus tibialis anterior","r":"jambe","g":"Mollets","v":"front","L":0,"parts":[[516,"",0]],"fn":"Relève la pointe du pied (flexion dorsale) et contrôle la pose du pied en course et en marche."}]};
+const ATM={}; ATLAS.muscles.forEach(m=>ATM[m.id]=m);
+const ATLVL={1:"Principal",0.5:"Secondaire",0.25:"Stabilisateur"};
+/* ---- correspondance exercices -> muscles (estimations configurables) ----
+   1 = muscle principal (séries directes), 0,5 = secondaire, 0,25 = stabilisateur. */
+function atParse(s){ return s.trim().split(/\s+/).map(t=>{ const [m,v]=t.split(":"); return [m,+v] }) }
+const AT_PAT={
+  push_h:"pec_stern:1 pec_clav:.5 pec_abd:.5 delt_ant:.5 tri_lat:.5 tri_med:.5 tri_long:.25 serratus:.25",
+  push_inc:"pec_clav:1 pec_stern:.5 delt_ant:.5 tri_lat:.5 tri_med:.5 tri_long:.25 serratus:.25",
+  fly:"pec_stern:1 pec_clav:.5 pec_abd:.5 delt_ant:.25 bic_short:.25",
+  tri:"tri_long:1 tri_lat:1 tri_med:1",
+  bi:"bic_long:1 bic_short:1 brachialis:.5 brachiorad:.25 fa_flex:.25",
+  bi_n:"brachiorad:1 brachialis:1 bic_long:.5 bic_short:.25 fa_flex:.25",
+  pull_v:"lats:1 teres_maj:1 trap_inf:.5 rhomb:.5 bic_long:.5 bic_short:.5 brachialis:.5 brachiorad:.5 delt_post:.25 fa_flex:.25 pec_abd:.25",
+  pull_h:"lats:1 trap_mid:1 rhomb:1 delt_post:.5 teres_maj:.5 trap_inf:.5 bic_long:.5 bic_short:.5 brachialis:.5 brachiorad:.5 infra:.25 erect:.25 fa_flex:.25",
+  press_sh:"delt_ant:1 delt_lat:.5 tri_lat:.5 tri_med:.5 tri_long:.25 trap_sup:.5 serratus:.5 pec_clav:.25",
+  lat:"delt_lat:1 supra:.5 trap_sup:.5 delt_ant:.25 serratus:.25",
+  rear:"delt_post:1 infra:.5 teres_min:.5 trap_mid:.5 rhomb:.5",
+  quad:"vl:1 vm:1 vi:1 rf:.5 glute_max:.5 add:.5 erect:.25 soleus:.25",
+  lunge:"vl:1 vm:1 vi:1 glute_max:1 rf:.5 glute_med:.5 add:.5 bf:.25 st:.25 sm:.25",
+  ext:"rf:1 vl:1 vm:1 vi:1",
+  curl_leg:"bf:1 st:1 sm:1 gast_med:.5 gast_lat:.5 sartorius:.25",
+  hinge:"bf:1 st:1 sm:1 glute_max:1 erect:.5 add:.5 trap_sup:.25 fa_flex:.25 lats:.25",
+  calf:"gast_med:1 gast_lat:1 soleus:.5",
+  core:"rectus:1 transv:1 ext_obl:.5 int_obl:.5 serratus:.25",
+  core_lat:"ext_obl:1 int_obl:1 transv:.5 glute_med:.5 rectus:.25"
+};
+const AT_EX={
+  "dips-pecs":"pec_stern:1 pec_abd:1 pec_clav:.25 pec_min:.5 delt_ant:.5 tri_lat:.5 tri_med:.5 tri_long:.5",
+  "pompes":"pec_stern:1 pec_clav:.5 pec_abd:.5 delt_ant:.5 tri_lat:.5 tri_med:.5 tri_long:.25 serratus:.5 rectus:.25 transv:.25",
+  "pompes-lestees":"pec_stern:1 pec_clav:.5 pec_abd:.5 delt_ant:.5 tri_lat:.5 tri_med:.5 tri_long:.25 serratus:.5 rectus:.25 transv:.25",
+  "pompes-declinees":"pec_clav:1 pec_stern:.5 delt_ant:.5 tri_lat:.5 tri_med:.5 serratus:.5 rectus:.25",
+  "crossover":"pec_stern:1 pec_abd:1 pec_clav:.25 delt_ant:.25",
+  "ecarte-bas":"pec_clav:1 pec_stern:.5 delt_ant:.5",
+  "triceps":"tri_long:1 tri_lat:1 tri_med:1 pec_stern:.5 pec_abd:.5 delt_ant:.5",
+  "dips-machine":"tri_long:1 tri_lat:1 tri_med:1 pec_stern:.5 pec_abd:.5 delt_ant:.5",
+  "dips-banc":"tri_lat:1 tri_med:1 tri_long:.5 delt_ant:.5 pec_stern:.25",
+  "triceps-poulie":"tri_lat:1 tri_med:1 tri_long:.5",
+  "extension-nuque":"tri_long:1 tri_med:1 tri_lat:.5",
+  "extension-corde-nuque":"tri_long:1 tri_med:1 tri_lat:.5",
+  "kickback":"tri_lat:1 tri_med:1 tri_long:.5 delt_post:.25",
+  "pompes-diamant":"tri_lat:1 tri_med:1 tri_long:.5 pec_stern:.5 delt_ant:.5 rectus:.25",
+  "dc-serre":"tri_lat:1 tri_med:1 tri_long:.5 pec_stern:.5 pec_clav:.5 delt_ant:.5",
+  "curl-incline":"bic_long:1 bic_short:.5 brachialis:.5 brachiorad:.25",
+  "curl-pupitre":"bic_short:1 bic_long:.5 brachialis:.5 brachiorad:.25",
+  "curl-concentre":"bic_short:1 bic_long:.5 brachialis:.5",
+  "curl-inverse":"brachiorad:1 brachialis:1 fa_ext:.5 bic_long:.25 bic_short:.25",
+  "chin-up":"lats:1 teres_maj:1 bic_long:1 bic_short:1 brachialis:.5 trap_inf:.5 rhomb:.5 pec_abd:.25 fa_flex:.25",
+  "tractions":"lats:1 teres_maj:1 trap_inf:.5 rhomb:.5 bic_long:.5 bic_short:.5 brachialis:.5 brachiorad:.5 delt_post:.25 fa_flex:.5 pec_abd:.25 rectus:.25",
+  "tractions-dos":"lats:1 teres_maj:1 trap_inf:.5 rhomb:.5 bic_long:.5 bic_short:.5 brachialis:.5 brachiorad:.5 delt_post:.25 fa_flex:.5 pec_abd:.25 rectus:.25",
+  "tractions-negatives":"lats:1 teres_maj:1 trap_inf:.5 rhomb:.5 bic_long:.5 bic_short:.5 brachialis:.5 brachiorad:.5 fa_flex:.5",
+  "pull-over":"lats:1 teres_maj:1 pec_stern:.5 tri_long:.5 pec_abd:.25 serratus:.25",
+  "rowing-barre":"lats:1 trap_mid:1 rhomb:1 delt_post:.5 teres_maj:.5 trap_inf:.5 bic_long:.5 bic_short:.5 brachialis:.5 brachiorad:.5 erect:.5 bf:.25 st:.25 sm:.25 glute_max:.25 fa_flex:.25",
+  "rowing-tbar":"lats:1 trap_mid:1 rhomb:1 delt_post:.5 teres_maj:.5 bic_long:.5 bic_short:.5 brachialis:.5 erect:.5 fa_flex:.25",
+  "rows-aus":"lats:1 trap_mid:1 rhomb:1 delt_post:.5 teres_maj:.5 bic_long:.5 bic_short:.5 brachialis:.5 rectus:.25 glute_max:.25",
+  "dev-militaire":"delt_ant:1 delt_lat:.5 tri_lat:.5 tri_med:.5 tri_long:.25 trap_sup:.5 serratus:.5 pec_clav:.25 erect:.25 rectus:.25",
+  "pompes-pike":"delt_ant:1 delt_lat:.5 tri_lat:.5 tri_med:.5 trap_sup:.5 serratus:.5 pec_clav:.5",
+  "face-pull":"delt_post:1 infra:1 teres_min:1 trap_mid:.5 rhomb:.5 trap_sup:.25",
+  "squat-barre":"vl:1 vm:1 vi:1 glute_max:1 rf:.5 add:.5 erect:.5 bf:.25 st:.25 sm:.25 soleus:.25 rectus:.25",
+  "squat-smith":"vl:1 vm:1 vi:1 rf:.5 glute_max:.5 add:.5 erect:.25",
+  "squat-goblet":"vl:1 vm:1 vi:1 rf:.5 glute_max:.5 add:.5 rectus:.25 erect:.25",
+  "air-squat":"vl:1 vm:1 vi:1 rf:.5 glute_max:.5 add:.25",
+  "presse":"vl:1 vm:1 vi:1 rf:.5 glute_max:.5 add:.5",
+  "step-up":"vl:1 vm:1 vi:1 glute_max:1 glute_med:.5 rf:.5 add:.25 soleus:.25",
+  "sissy":"rf:1 vl:1 vm:1 vi:1 rectus:.25",
+  "nordic":"bf:1 st:1 sm:1 gast_med:.5 gast_lat:.5 glute_max:.25",
+  "leg-curl-assis":"bf:1 st:1 sm:1 gast_med:.25 gast_lat:.25",
+  "hip-thrust":"glute_max:1 glute_med:.5 bf:.5 st:.5 sm:.5 add:.25 vl:.25 vm:.25",
+  "good-morning":"bf:1 st:1 sm:1 erect:1 glute_max:.5 add:.5",
+  "mollets-assis":"soleus:1 gast_med:.25 gast_lat:.25",
+  "hollow":"rectus:1 transv:1 ext_obl:.5 int_obl:.5 iliopsoas:.5 rf:.25",
+  "ab-wheel":"rectus:1 transv:.5 ext_obl:.5 int_obl:.5 lats:.5 serratus:.5 tri_long:.25",
+  "releve-jambes":"rectus:1 iliopsoas:1 ext_obl:.5 int_obl:.5 rf:.5 fa_flex:.5 lats:.25",
+  "crunch-poulie":"rectus:1 ext_obl:.5 int_obl:.5",
+  "dead-bug":"transv:1 rectus:.5 ext_obl:.5 int_obl:.5 iliopsoas:.25",
+  "pallof":"ext_obl:1 int_obl:1 transv:1 rectus:.25",
+  "farmer-uni":"ext_obl:1 int_obl:1 fa_flex:1 trap_sup:.5 glute_med:.5 erect:.25"
+};
+/* séances cardio et sports : sollicitation sans séries (indicative) */
+const AT_ACT={
+  run:"soleus:1 gast_med:.5 gast_lat:.5 rf:.5 vl:.5 vm:.5 vi:.5 bf:.5 st:.5 sm:.5 glute_max:.5 iliopsoas:.5 tib_ant:.5 glute_med:.25",
+  walk:"soleus:.5 gast_med:.25 gast_lat:.25 tib_ant:.25 glute_max:.25 vl:.25 vm:.25",
+  bike:"vl:1 vm:1 vi:1 rf:1 glute_max:.5 soleus:.5 gast_med:.25 gast_lat:.25 bf:.25",
+  hometrainer:"vl:1 vm:1 vi:1 rf:1 glute_max:.5 soleus:.5 gast_med:.25 gast_lat:.25 bf:.25",
+  rameur:"lats:1 trap_mid:.5 rhomb:.5 delt_post:.5 bic_long:.5 bic_short:.5 brachialis:.5 vl:.5 vm:.5 vi:.5 glute_max:.5 erect:.5 fa_flex:.25",
+  natation:"lats:1 delt_ant:.5 delt_lat:.5 delt_post:.5 tri_long:.5 pec_stern:.5 teres_maj:.5 rectus:.25",
+  elliptique:"vl:.5 vm:.5 vi:.5 glute_max:.5 rf:.25 soleus:.25",
+  corde:"gast_med:1 gast_lat:1 soleus:1 delt_ant:.25 fa_flex:.25",
+  hiit:"vl:.5 vm:.5 vi:.5 glute_max:.5 rectus:.5 gast_med:.25 gast_lat:.25",
+  padel:"delt_ant:.5 delt_lat:.5 ext_obl:.5 int_obl:.5 vl:.5 vm:.5 gast_med:.5 gast_lat:.5 soleus:.5 fa_flex:.5 fa_ext:.5 infra:.25 glute_med:.25",
+  tennis:"delt_ant:.5 delt_lat:.5 ext_obl:.5 int_obl:.5 vl:.5 vm:.5 gast_med:.5 gast_lat:.5 soleus:.5 fa_flex:.5 fa_ext:.5 infra:.25 glute_med:.25",
+  badminton:"delt_ant:.5 delt_lat:.5 ext_obl:.25 vl:.25 gast_med:.5 gast_lat:.5 soleus:.5 fa_ext:.5",
+  squash:"delt_ant:.5 ext_obl:.5 int_obl:.5 vl:.5 vm:.5 gast_med:.5 gast_lat:.5 soleus:.5 fa_flex:.5 fa_ext:.5",
+  foot:"rf:1 vl:.5 vm:.5 vi:.5 bf:.5 st:.5 sm:.5 add:.5 gast_med:.5 gast_lat:.5 soleus:.5 glute_max:.5 iliopsoas:.5",
+  futsal:"rf:.5 vl:.5 vm:.5 vi:.5 bf:.5 st:.5 add:.5 gast_med:.5 gast_lat:.5 soleus:.5 glute_max:.25",
+  basket:"gast_med:1 gast_lat:1 soleus:.5 vl:.5 vm:.5 glute_max:.5 delt_ant:.25",
+  boxe:"delt_ant:1 delt_lat:.5 serratus:.5 ext_obl:.5 int_obl:.5 tri_lat:.25 gast_med:.25 gast_lat:.25",
+  combat:"delt_ant:.5 ext_obl:.5 rectus:.5 vl:.5 glute_max:.5 fa_flex:.5",
+  escalade:"lats:1 fa_flex:1 brachialis:1 bic_long:.5 bic_short:.5 brachiorad:.5 teres_maj:.5 trap_inf:.5 rectus:.25",
+  ski:"vl:1 vm:1 vi:1 rf:.5 glute_max:.5 add:.5 tib_ant:.25",
+  rando:"vl:.5 vm:.5 glute_max:.5 soleus:.5 gast_med:.5 gast_lat:.5 tib_ant:.25"
+};
+const AT_GROUP={Pecs:["pec_stern","pec_clav","pec_abd"],Dos:["lats","trap_mid","rhomb","teres_maj"],"Épaules":["delt_ant","delt_lat","delt_post"],Biceps:["bic_long","bic_short","brachialis"],
+  Triceps:["tri_long","tri_lat","tri_med"],Quadriceps:["rf","vl","vm","vi"],Ischios:["bf","st","sm"],Fessiers:["glute_max","glute_med"],Mollets:["gast_med","gast_lat","soleus"],Abdos:["rectus","ext_obl","int_obl","transv"]};
+const _atCache={};
+function atDefault(id){
+  if(_atCache[id]) return _atCache[id];
+  let src="", list=null;
+  if(AT_EX[id]){ list=atParse(AT_EX[id]); src="exercice" }
+  else if(LIB[id]&&AT_PAT[LIB[id].pat]){ list=atParse(AT_PAT[LIB[id].pat]); src="mouvement" }
+  else { const m=musclesOf(id); if(m.length){ list=[]; m.forEach(([g,w])=>(AT_GROUP[g]||[]).forEach(a=>list.push([a,w>=1?1:.5]))); src="générique" } }
+  return _atCache[id]={list:list||[],src:list?src:"aucune"};
+}
+/* coefficients effectifs : réglage personnel > table par exercice > table par mouvement > groupe */
+function atCoef(id){
+  const ov=((state.settings||{}).atlasCoef||{})[id];
+  if(ov&&typeof ov==="object"){ const list=Object.entries(ov).filter(([m,v])=>ATM[m]&&+v>0).map(([m,v])=>[m,+v]); return {list,src:"perso"} }
+  return atDefault(id);
+}
+function atAct(a){ const g=a.cat==="cardio"?cdef(a).g:""; const s=AT_ACT[a.t]||AT_ACT[g];
+  if(s) return atParse(s);
+  const m=actMuscles(a), out=[]; m.forEach(([g2,w])=>(AT_GROUP[g2]||[]).forEach(x=>out.push([x,w>=1?.5:.25]))); return out }
+
+/* ---- journal détaillé de toutes les sollicitations ---- */
+function atEntries(){
+  const out=[], t=todayKey();
+  Object.keys(state.sessions).sort().forEach(k=>{ if(k>t) return; const s=state.sessions[k]; if(!s) return;
+    if(s.ex) Object.entries(s.ex).forEach(([slot,e])=>{ if(!e||e.skip) return; const id=e.alt||slot, n=doneSets(e).length; if(!n) return;
+      const name=exInfo(id,e).n; atCoef(id).list.forEach(([m,l])=>out.push({k,m,l,sets:n,src:"muscu",ex:id,n:name})) });
+    const cfg=s.type&&typeof wodCfg==="function"?wodCfg(s.type):null;
+    if(cfg&&s.wod&&s.wod.final){ const st=wodStats(s.wod,cfg); st.moves.forEach(mv=>{ if(!mv.reps) return; const eq=Math.max(.5,Math.round(mv.reps/10*2)/2);
+      atCoef(mv.id).list.forEach(([m,l])=>out.push({k,m,l,sets:eq,src:"circuit",ex:mv.id,n:mv.n+" ("+mv.reps+" rép.)"})) }) }
+    (s.acts||[]).filter(a=>a&&a.done).forEach(a=>{ const min=Math.round((a.dur||0)/60); atAct(a).forEach(([m,l])=>out.push({k,m,l,sets:0,min,src:a.cat||"cardio",n:cname(a)})) });
+  });
+  return out;
+}
+const atl={view:"front",layer:0,mode:"recence",range:"7",filter:"",q:"",sel:"",full:false,edit:"",engine:null,status:"idle",err:"",hover:null,coefOpen:false};
+function atRange(entries){
+  const t=todayKey();
+  if(atl.range==="last"){ const ks=entries.filter(e=>e.src!=="muscu"||e.sets>0).map(e=>e.k); const last=ks.length?ks.reduce((a,b)=>a>b?a:b):t; return {from:last,to:last,days:1,label:"dernier entraînement"+(ks.length?" ("+fmtShort.format(parseKey(last))+")":"")} }
+  if(atl.range==="all"){ const ks=entries.map(e=>e.k); const first=ks.length?ks.reduce((a,b)=>a<b?a:b):t; return {from:first,to:t,days:diffDays(first,t)+1,label:"historique complet"} }
+  const n=+atl.range||7; return {from:addDays(t,-(n-1)),to:t,days:n,label:n+" derniers jours"};
+}
+function atStats(entries,from,to){
+  const S={}; ATLAS.muscles.forEach(m=>S[m.id]={direct:0,indirect:0,vol:0,last:null,lastAny:null,sess:new Set(),items:[],act:0,dayW:{}});
+  entries.forEach(e=>{ if(e.k<from||e.k>to) return; const s=S[e.m]; if(!s) return;
+    s.items.push(e); s.sess.add(e.k); if(!s.lastAny||e.k>s.lastAny) s.lastAny=e.k;
+    if(e.sets>0){ if(e.l>=1) s.direct+=e.sets; else s.indirect+=e.sets; s.vol+=e.sets*e.l; if(e.l>=.5) s.dayW[e.k]=(s.dayW[e.k]||0)+e.sets*e.l }
+    else { s.act++; if(e.l>=.5) s.dayW[e.k]=Math.max(s.dayW[e.k]||0,1) } });
+  Object.values(S).forEach(s=>{ Object.entries(s.dayW).forEach(([k,w])=>{ if(w>=1&&(!s.last||k>s.last)) s.last=k }) });
+  return S;
+}
+const AT_REC=[{max:1,c:"#E0524F",l:"Aujourd'hui ou hier"},{max:3,c:"#EE9A3E",l:"Il y a 2 à 3 jours"},{max:6,c:"#4FB06F",l:"Il y a 4 à 6 jours"},{max:13,c:"#5B9BD5",l:"Il y a 1 à 2 semaines"},{max:1e9,c:"#7D8790",l:"Plus de 2 semaines ou jamais"}];
+const AT_VOL=[{min:0,c:"#56616b",l:"0"},{min:.01,c:"#2d6e8c",l:"moins de 3"},{min:3,c:"#3a95b8",l:"3 à 6"},{min:6,c:"#5cc0d9",l:"6 à 10"},{min:10,c:"#a6e3f0",l:"10 à 15"},{min:15,c:"#f2d26b",l:"15 et plus"}];
+function atRecOf(s){ if(!s||!s.last) return AT_REC[4]; const d=diffDays(s.last,todayKey()); return AT_REC.find(h=>d<=h.max) }
+function atVolOf(s,days){ const v=s?s.vol/Math.max(1,days/7):0; let r=AT_VOL[0]; AT_VOL.forEach(x=>{ if(v>=x.min) r=x }); return r }
+function atColors(S,R){
+  const map={}; ATLAS.muscles.forEach(m=>{ map[m.id]=atl.mode==="volume"?atVolOf(S[m.id],R.days).c:atRecOf(S[m.id]).c }); return map;
+}
+function atFilterSet(S){
+  const ids=ATLAS.muscles.map(m=>m.id), f=atl.filter;
+  if(f==="direct") return new Set(ids.filter(i=>S[i].direct>0));
+  if(f==="indirect") return new Set(ids.filter(i=>S[i].indirect>0||S[i].act>0));
+  if(f==="none") return new Set(ids.filter(i=>!S[i].items.length));
+  if(f==="top"){ const top=ids.filter(i=>S[i].vol>0).sort((a,b)=>S[b].vol-S[a].vol).slice(0,8); return new Set(top) }
+  return null;
+}
+function atSearch(q){ q=norm(q.trim()); if(!q) return [];
+  return ATLAS.muscles.filter(m=>norm(m.fr+" "+m.la+" "+m.parts.map(p=>p[1]).join(" ")+" "+m.g).includes(q)).slice(0,10) }
+function atDays(k){ const d=diffDays(k,todayKey()); return d===0?"aujourd'hui":d===1?"hier":"il y a "+d+" j" }
+function atFmtN(x){ return fmt(x,x%1?1:0) }
+
+/* ---- carte ---- */
+function atlasCardHTML(){
+  const E=atEntries(), R=atRange(E), S=atStats(E,R.from,R.to), FS=atFilterSet(S);
+  atl._colors=atColors(S,R); atl._dims=FS; atl._S=S;
+  const chip=(k,v,l,on)=>`<button class="chip ${on?"on":""}" data-at${k}="${v}">${l}</button>`;
+  const leg=atl.mode==="volume"?AT_VOL.map(h=>`<span><i style="background:${h.c}"></i>${h.l}</span>`).join("")+`<span class="meta">séries pondérées${R.days>7?" par semaine":""}</span>`
+    :AT_REC.map(h=>`<span><i style="background:${h.c}"></i>${h.l}</span>`).join("");
+  const res=atSearch(atl.q);
+  const nTouched=ATLAS.muscles.filter(m=>S[m.id].items.length).length;
+  const fsCount=FS?FS.size:null;
+  const regions=ATLAS.regions.map(([r,l])=>{ const ms=ATLAS.muscles.filter(m=>m.r===r);
+    return `<div class="atreg"><span class="lbl">${l}</span>${ms.map(m=>{ const s=S[m.id], c=atl._colors[m.id], dim=FS&&!FS.has(m.id);
+      return `<button class="atrow${dim?" dim":""}${atl.sel===m.id?" on":""}" data-atsel="${m.id}"><i style="background:${c}"></i><span>${esc(m.fr)}</span><span class="meta">${s.direct?atFmtN(s.direct)+" dir.":""}${s.direct&&s.indirect?" · ":""}${s.indirect?atFmtN(s.indirect)+" ind.":""}${!s.direct&&!s.indirect&&s.act?"cardio/sport":""}${!s.items.length?"–":""}</span></button>` }).join("")}</div>` }).join("");
+  return `<section class="card atcard${atl.full?" full":""}" id="atcard">
+    <h2 class="ttl" style="margin:0"><img class="ico" src="icons/i-muscle.webp" alt="">Atlas musculaire</h2>
+    <div class="atseg" role="group" aria-label="Vue">${[["front","Face"],["back","Dos"],["left","Profil G"],["right","Profil D"]].map(([v,l])=>`<button class="${atl.view===v?"on":""}" data-atview="${v}">${l}</button>`).join("")}</div>
+    <div class="atseg" role="group" aria-label="Profondeur">${[["0","Superficiel"],["1","Intermédiaire"],["2","Profond"]].map(([v,l])=>`<button class="${String(atl.layer)===v?"on":""}" data-atlayer="${v}">${l}</button>`).join("")}</div>
+    ${atStageHTML()}
+    <div class="atleg">${leg}</div>
+    <div class="chips">${chip("range","last","Dernier entraînement",atl.range==="last")}${chip("range","7","7 j",atl.range==="7")}${chip("range","14","14 j",atl.range==="14")}${chip("range","30","30 j",atl.range==="30")}${chip("range","all","Tout",atl.range==="all")}</div>
+    <div class="chips">${chip("mode","recence","Dernière sollicitation",atl.mode==="recence")}${chip("mode","volume","Volume de travail",atl.mode==="volume")}</div>
+    <div class="chips">${chip("filter","","Tous",!atl.filter)}${chip("filter","direct","Directement",atl.filter==="direct")}${chip("filter","indirect","Indirectement",atl.filter==="indirect")}${chip("filter","none","Non travaillés",atl.filter==="none")}${chip("filter","top","Les plus sollicités",atl.filter==="top")}</div>
+    <div class="atsearch"><input type="search" id="at-q" placeholder="Rechercher un muscle : deltoïde, ischio…" value="${esc(atl.q)}" autocomplete="off" aria-label="Rechercher un muscle">
+      ${res.length?`<div class="atres">${res.map(m=>`<button class="actopt" data-atsel="${m.id}" data-atfocus="1"><span>${esc(m.fr)}</span><span class="meta">${esc(m.g)}</span></button>`).join("")}</div>`:atl.q.trim()?`<span class="meta">Aucun muscle trouvé.</span>`:""}</div>
+    <span class="meta">Période : ${esc(R.label)} · ${nTouched} muscle${nTouched>1?"s":""} sollicité${nTouched>1?"s":""} sur ${ATLAS.muscles.length}${fsCount!=null?" · filtre : "+fsCount+" muscle"+(fsCount>1?"s":""):""}.</span>
+    <details class="atlist"${atl.listOpen?" open":""}><summary data-atlist="1">Liste des ${ATLAS.muscles.length} muscles</summary>${regions}</details>
+    <details class="atlist"${atl.coefOpen?" open":""}><summary data-atcoefs="1">Exercices et coefficients musculaires</summary>${atl.coefOpen?atCoefListHTML():""}</details>
+    <span class="meta">Les couleurs indiquent depuis quand chaque muscle a été sollicité (au moins une série directe, ou deux séries où il est secondaire le même jour — les rôles de stabilisateur ne colorent pas —, ou une séance de cardio ou de sport qui le sollicite nettement). Ce n'est pas une mesure de ta récupération réelle. Les coefficients muscle par exercice sont des estimations, modifiables. Modèle 3D : BodyParts3D © DBCLS (CC BY-SA 2.1 JP), via le projet « Anatomía en capas » (CC BY-SA 4.0), maillages simplifiés et regroupés pour Winter Arc.</span>
+  </section>${atl.sel?atSheetHTML(S,E):""}`;
+}
+function atStageHTML(mode){
+  return `<div class="atstage" id="atlas-host" data-mode="${mode||"map"}">
+    <div class="atmsg" id="at-msg">${atl.status==="error"?esc(atl.err):atl.status==="ready"?"":"Chargement du modèle anatomique…"}</div>
+    <div class="attip" id="at-tip" hidden></div>
+    <div class="atzoom">${mode==="pick"?"":`<button data-atfull="1" aria-label="${atl.full?"Quitter le plein écran":"Plein écran"}">${atl.full?"✕":"⤢"}</button>`}<button data-atzoom="in" aria-label="Zoomer">+</button><button data-atzoom="out" aria-label="Dézoomer">−</button><button data-atzoom="reset" aria-label="Recadrer">⟲</button></div>
+    <span class="athint">${matchMedia("(hover: hover)").matches?"Glisse pour tourner · molette pour zoomer · clic droit pour déplacer":"Glisse pour tourner · pince pour zoomer · touche un muscle"}</span></div>`;
+}
+
+/* ---- fiche d'un muscle ---- */
+function atExercisesFor(mid){
+  const ids=new Set(Object.keys(LIB)); Object.keys(ALL_EX).forEach(i=>ids.add(i));
+  const done={}; atEntries().forEach(e=>{ if(e.ex&&e.m===mid) done[e.ex]=(done[e.ex]||0)+1 });
+  const out={1:[],0.5:[],0.25:[]};
+  ids.forEach(id=>{ const c=atCoef(id).list.find(([m])=>m===mid); if(c&&out[c[1]]) out[c[1]].push({id,n:exInfo(id).n,done:done[id]||0}) });
+  Object.values(out).forEach(a=>a.sort((x,y)=>y.done-x.done||x.n.localeCompare(y.n,"fr")));
+  return out;
+}
+function atWeeks(E,mid){
+  const t=todayKey(), w=[];
+  for(let i=9;i>=0;i--){ const to=addDays(t,-i*7), from=addDays(to,-6); let d=0,ind=0,act=0;
+    E.forEach(e=>{ if(e.m!==mid||e.k<from||e.k>to) return; if(e.sets>0){ if(e.l>=1) d+=e.sets; else ind+=e.sets } else act++ });
+    w.push({from,to,d,ind,act}) }
+  return w;
+}
+function atSheetHTML(S,E){
+  const m=ATM[atl.sel]; if(!m) return "";
+  const t=todayKey(), S7=atStats(E,addDays(t,-6),t)[m.id], SR=S[m.id], all=atStats(E,"0000-00-00",t)[m.id];
+  const ex=atExercisesFor(m.id), wk=atWeeks(E,m.id), maxW=Math.max(4,...wk.map(x=>x.d+x.ind));
+  const img=atl.engine&&atl.status==="ready"?atl.engine.snapshot(m.id,m.v,atRecOf(all).c==="#7D8790"?"#c25a52":atRecOf(all).c):"";
+  const exList=(lvl,max)=>{ const a=ex[lvl]; if(!a.length) return ""; return `<div><span class="lbl">${ATLVL[lvl]} (${lvl===1?"séries directes":"compte en indirect"})</span><ul class="plain atex">${a.slice(0,max).map(x=>`<li><span>${esc(x.n)}${x.done?` <span class="pill good">fait</span>`:""}</span><button class="linkbtn" data-atedit="${x.id}">Coefficients</button></li>`).join("")}</ul>${a.length>max?`<span class="meta">et ${a.length-max} autre${a.length-max>1?"s":""}</span>`:""}</div>` };
+  const hist=SR.items.slice().sort((a,b)=>b.k.localeCompare(a.k)).slice(0,14);
+  const role=e=>e.sets>0?(e.l>=1?`<b>direct</b> · ${atFmtN(e.sets)} série${e.sets>1?"s":""}`:`indirect (${String(e.l).replace(".",",")}) · ${atFmtN(e.sets)} série${e.sets>1?"s":""}`):`${e.min} min · sollicitation ${e.l>=1?"forte":e.l>=.5?"modérée":"légère"}`;
+  const bars=`<svg viewBox="0 0 300 92" class="atbars" role="img" aria-label="Séries directes et indirectes par semaine, 10 dernières semaines">${wk.map((x,i)=>{ const X=6+i*29, hd=x.d/maxW*64, hi=x.ind/maxW*64;
+    return `<rect x="${X}" y="${72-hd}" width="20" height="${hd}" rx="2" fill="#E0524F"/><rect x="${X}" y="${72-hd-hi}" width="20" height="${hi}" rx="2" fill="#5B9BD5" opacity=".85"/>${x.act?`<circle cx="${X+10}" cy="80" r="2.5" fill="#4FB06F"/>`:""}<text x="${X+10}" y="90" text-anchor="middle" font-size="7" fill="currentColor" opacity=".6">${fmtShort.format(parseKey(x.from)).replace(".","")}</text>` }).join("")}</svg>`;
+  return `<div class="atsheet" role="dialog" aria-label="Fiche : ${esc(m.fr)}">
+    <div class="atsh-head"><div><h3>${esc(m.fr)}</h3><i class="meta">${esc(m.la)}</i></div><button class="ib" data-atclose="1" aria-label="Fermer la fiche">✕</button></div>
+    ${img?`<img class="atsnap" src="${img}" alt="Vue isolée du muscle ${esc(m.fr)}">`:`<div class="atsnap empty">${atl.status==="error"?"Illustration 3D indisponible sur cet appareil":"Illustration en cours de chargement"}</div>`}
+    ${m.parts.length>1?`<span class="meta">Comprend : ${m.parts.map(p=>esc(p[1])).join(", ")}.</span>`:""}
+    <p class="atfn">${esc(m.fn)}</p>
+    <div class="atkpi">
+      <div><b>${all.last?fmtShort.format(parseKey(all.last)):"–"}</b><span>Dernière sollicitation${all.last?" ("+atDays(all.last)+")":""}</span></div>
+      <div><b>${atFmtN(S7.direct)}</b><span>Séries directes sur 7 jours</span></div>
+      <div><b>${atFmtN(S7.indirect)}</b><span>Séries indirectes sur 7 jours${S7.act?" · "+S7.act+" séance"+(S7.act>1?"s":"")+" cardio/sport":""}</span></div>
+      <div><b>${SR.sess.size}</b><span>Séances concernées (${esc(atRange(E).label)})</span></div>
+    </div>
+    <span class="meta">Une série compte en direct uniquement si ce muscle est le muscle principal de l'exercice. Sinon elle compte à part, en indirect, avec son coefficient (volume pondéré sur la période : ${fmt(SR.vol,1)}). Circuits : 10 répétitions = 1 série équivalente (estimation).</span>
+    <span class="lbl">Historique sur 10 semaines</span>${bars}
+    <div class="atleg small"><span><i style="background:#E0524F"></i>séries directes</span><span><i style="background:#5B9BD5"></i>séries indirectes</span><span><i style="background:#4FB06F;border-radius:50%"></i>cardio ou sport</span></div>
+    ${hist.length?`<ul class="plain athist">${hist.map(e=>`<li><span class="meta">${fmtShort.format(parseKey(e.k))}</span> ${esc(e.n)} · ${role(e)}</li>`).join("")}</ul>`:`<span class="meta">Aucune sollicitation sur la période choisie.</span>`}
+    <span class="lbl">Exercices qui le sollicitent</span>
+    ${exList(1,8)}${exList(0.5,6)}${exList(0.25,4)}
+    ${!ex[1].length&&!ex[0.5].length&&!ex[0.25].length?`<span class="meta">Aucun exercice de ta bibliothèque ne le cible pour l'instant.</span>`:""}
+    ${atl.edit?atEditorHTML(atl.edit):""}
+    <button class="btn ghost" data-sbfrom="${esc(m.g)}">Créer une séance « ${esc(m.g)} »</button>
+  </div>`;
+}
+/* ---- édition des coefficients (validation manuelle) ---- */
+function atLvlSel(name,v){ return `<select data-atlvl="${name}">${[[1,"Principal · 1"],[0.5,"Secondaire · 0,5"],[0.25,"Stabilisateur · 0,25"],[0,"Aucun"]].map(([x,l])=>`<option value="${x}" ${+v===x?"selected":""}>${l}</option>`).join("")}</select>` }
+function atEditorHTML(id){
+  const c=atCoef(id), def=atDefault(id), draft=atl.draft||Object.fromEntries(c.list);
+  const rows=Object.entries(draft).sort((a,b)=>b[1]-a[1]);
+  const free=ATLAS.muscles.filter(m=>!(m.id in draft));
+  return `<div class="ateditor"><b>${esc(exInfo(id).n)}</b>
+    <span class="meta">Source actuelle : ${c.src==="perso"?"tes réglages":c.src==="exercice"?"table par exercice":c.src==="mouvement"?"table par type de mouvement":c.src==="générique"?"correspondance générique par groupe":"aucune"}. Valeurs estimées, pas des mesures.</span>
+    ${rows.map(([mid,v])=>`<div class="row atedrow"><span style="flex:1">${esc(ATM[mid].fr)}</span>${atLvlSel(mid,v)}</div>`).join("")||`<span class="meta">Aucun muscle associé.</span>`}
+    <div class="row"><select id="at-add" style="flex:1"><option value="">Ajouter un muscle…</option>${free.map(m=>`<option value="${m.id}">${esc(m.fr)}</option>`).join("")}</select></div>
+    <div class="row"><button class="btn" data-atsave="${id}">Valider</button>${c.src==="perso"&&def.list.length?`<button class="btn ghost" data-atreset="${id}">Revenir aux valeurs par défaut</button>`:""}<button class="linkbtn" data-atedit="">Annuler</button></div></div>`;
+}
+function atCoefListHTML(){
+  const done={}; atEntries().forEach(e=>{ if(e.ex) done[e.ex]=1 });
+  const ids=Object.keys(done).concat(Object.keys(((state.settings||{}).atlasCoef)||{})).filter((x,i,a)=>a.indexOf(x)===i);
+  const sum=id=>atCoef(id).list.filter(([,l])=>l>=1).map(([m])=>ATM[m].fr.replace(/ — .*/,"")).filter((x,i,a)=>a.indexOf(x)===i).join(", ")||"aucun muscle principal";
+  return `<div class="atcoefs">${ids.length?ids.sort((a,b)=>exInfo(a).n.localeCompare(exInfo(b).n,"fr")).map(id=>`<div class="row atedrow"><span style="flex:1"><b>${esc(exInfo(id).n)}</b><br><span class="meta">${esc(sum(id))}${atCoef(id).src==="perso"?" · réglé par toi":""}</span></span><button class="linkbtn" data-atedit="${id}" data-atopenex="1">Modifier</button></div>`).join(""):`<span class="meta">Aucun exercice enregistré pour l'instant.</span>`}
+    ${atl.edit&&!atl.sel?atEditorHTML(atl.edit):""}
+    <span class="meta">Pour chaque exercice : muscle principal (1, compté en séries directes), secondaire (0,5) ou stabilisateur (0,25), comptés à part en indirect. Chaque modification est inscrite dans l'historique des modifications.</span></div>`;
+}
+function atReadDraft(){
+  const d={}; document.querySelectorAll("[data-atlvl]").forEach(s=>{ d[s.dataset.atlvl]=+s.value }); return d;
+}
+function atSaveCoef(id,reset){
+  const st=clone(state.settings||{}); st.atlasCoef=st.atlasCoef||{};
+  const before=atCoef(id).list.map(([m,l])=>ATM[m].fr+" "+String(l).replace(".",",")).join(", ")||"aucun";
+  if(reset) delete st.atlasCoef[id];
+  else { const d=atReadDraft(), o={}; Object.entries(d).forEach(([m,v])=>{ if(v>0&&ATM[m]) o[m]=v }); st.atlasCoef[id]=o }
+  state.settings=st; saveSettings();
+  const after=atCoef(id).list.map(([m,l])=>ATM[m].fr+" "+String(l).replace(".",",")).join(", ")||"aucun";
+  logChange("Coefficients musculaires : "+exInfo(id).n,before,reset?"valeurs par défaut ("+after+")":after,"toi");
+  atl.edit=""; atl.draft=null; render();
+}
+
+/* ---- moteur 3D : chargement paresseux ---- */
+function atLoadScript(src){ return new Promise((res,rej)=>{ const s=document.createElement("script"); s.src=src; s.onload=res; s.onerror=()=>rej(new Error("fichier "+src+" non chargé")); document.head.appendChild(s) }) }
+let atLoading=null;
+function atEnsureEngine(){
+  if(atl.engine||atLoading) return atLoading;
+  atl.status="loading";
+  atLoading=(async()=>{
+    try{
+      const c=document.createElement("canvas"); if(!(c.getContext("webgl2")||c.getContext("webgl"))) throw new Error("WebGL indisponible");
+      if(!window.THREE) await atLoadScript("lib/three-0.149.0.min.js");
+      let dec=null;
+      try{ if(!window.MeshoptDecoder) await atLoadScript("lib/meshopt_decoder-0.22.0.js"); await window.MeshoptDecoder.ready; dec=window.MeshoptDecoder;
+        const probe=new Uint8Array(8); dec.decodeVertexBuffer(probe,1,8,new Uint8Array([0xa0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])) }
+      catch(e){ dec=null }
+      if(!dec){ if(!window.MeshoptDecoderRef) await atLoadScript("lib/meshopt_decoder_ref-0.22.0.js"); dec=window.MeshoptDecoderRef }
+      const r=await fetch("data/atlas-muscles.json"); if(!r.ok) throw new Error("modèle introuvable (HTTP "+r.status+")");
+      const bin=atob((await r.json()).b64), u8=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u8[i]=bin.charCodeAt(i);
+      const buf=u8.buffer;
+      atl.engine=createAtlas3D(window.THREE,dec,buf,{segments:{rectus:[.45,.63,.8]},onPick:atOnPick,onHover:atOnHover});
+      atl.status="ready"; atl.engine.setView(atl.view,true); atl.engine.setLayer(atl.layer);
+    }catch(e){ atl.status="error"; atl.err="L'affichage 3D n'a pas pu démarrer ("+(e.message||e)+"). La liste des muscles et les fiches restent disponibles ci-dessous."; console.warn(e) }
+    atLoading=null; if(atl.status==="ready") atAfterRender(true); else { const msg=document.getElementById("at-msg"); if(msg) msg.textContent=atl.err } if(atl.sel) render();
+  })();
+  return atLoading;
+}
+function atAfterRender(fromLoad){
+  const host=document.getElementById("atlas-host");
+  if(!host){ if(atl.full){ atl.full=false; document.body.classList.remove("atfull") } return }
+  if(!atl.engine){ if(atl.status!=="error") atEnsureEngine(); const msg=document.getElementById("at-msg"); if(msg&&atl.status==="error") msg.textContent=atl.err; return }
+  const E=atl.engine; E.mount(host);
+  const msg=document.getElementById("at-msg"); if(msg) msg.textContent="";
+  if(host.dataset.mode==="pick"){ const sel=new Set(sb.sel), col={}, on=new Set();
+    ATLAS.muscles.forEach(m=>{ col[m.id]=sel.has(m.g)?"#6FB3D2":"#7D8790"; if(sel.has(m.g)) on.add(m.id) }); E.setColors(col,null); E.setSel("") }
+  else { E.setColors(atl._colors||{},atl._dims||null); E.setSel(atl.sel) }
+  E.setLayer(atl.layer);
+  if(fromLoad) E.setView(atl.view,true);
+}
+function atOnHover(h,x,y){
+  const tip=document.getElementById("at-tip"), host=document.getElementById("atlas-host"); if(!tip||!host) return;
+  if(!h){ tip.hidden=true; return }
+  const m=h.a?ATM[h.a]:null, part=m&&m.parts.length>1?(m.parts.find(p=>p[0]===h.c)||[])[1]:"";
+  const s=atl._S&&h.a?atl._S[h.a]:null, mode=host.dataset.mode;
+  tip.innerHTML=m?`<b>${esc(m.fr)}</b>${part?`<span>${esc(part)}</span>`:""}${mode==="pick"?`<span>Groupe : ${esc(m.g)}</span>`:s?`<span>${s.last?"Sollicité "+atDays(s.last):"Non sollicité sur la période"}${s.direct?" · "+atFmtN(s.direct)+" séries directes":""}</span>`:""}`
+    :`<b>${esc(h.name)}</b><span>Muscle non relié aux exercices</span>`;
+  const r=host.getBoundingClientRect(); tip.hidden=false;
+  tip.style.left=Math.min(r.width-tip.offsetWidth-6,Math.max(6,x-r.left+14))+"px"; tip.style.top=Math.max(6,y-r.top-tip.offsetHeight-10)+"px";
+}
+function atOnPick(h,ptype){
+  const host=document.getElementById("atlas-host"); if(!host) return;
+  if(host.dataset.mode==="pick"){ if(!h||!h.a) return; const g=ATM[h.a].g; sb.sel=sb.sel.includes(g)?sb.sel.filter(x=>x!==g):sb.sel.concat(g); render(); return }
+  if(h&&h.ctx){ atOnHover(h,0,0); const tip=document.getElementById("at-tip"); if(tip){ tip.style.left="8px"; tip.style.top="8px"; clearTimeout(atl._tt); atl._tt=setTimeout(()=>{ tip.hidden=true },2200) } return }
+  if(!h||!h.a){ if(atl.sel){ atl.sel=""; atl.edit=""; render() } return }
+  atl.sel=atl.sel===h.a&&ptype==="mouse"?"":h.a; atl.edit=""; atl.draft=null; render();
+}
+function atSelect(id,focus){
+  atl.sel=id; atl.edit=""; atl.draft=null;
+  const m=ATM[id];
+  if(focus&&m){ atl.view=m.v; if(m.L>atl.layer) atl.layer=m.L; if(atl.engine){ atl.engine.setLayer(atl.layer); atl.engine.focusOn(id,m.v) } }
+  render();
+}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,summary"); if(!t||!t.closest("#app")) return; const d=t.dataset;
+  if(d.sbfrom){ atl.sel=""; atl.edit="" }
+  if(d.atview){ atl.view=d.atview; if(atl.engine) atl.engine.setView(atl.view); render(); return }
+  if(d.atlayer!=null){ atl.layer=+d.atlayer; render(); return }
+  if(d.atrange){ atl.range=d.atrange; render(); return }
+  if(d.atmode){ atl.mode=d.atmode; render(); return }
+  if(d.atfilter!=null){ atl.filter=d.atfilter; render(); return }
+  if(d.atsel){ atSelect(d.atsel,!!d.atfocus||t.classList.contains("atrow")); if(d.atfocus){ atl.q="" ; render() } return }
+  if(d.atclose){ atl.sel=""; atl.edit=""; atl.draft=null; render(); return }
+  if(d.atzoom){ if(atl.engine){ if(d.atzoom==="reset") atl.engine.setView(atl.view); else atl.engine.zoom(d.atzoom==="in"?0.8:1.25) } return }
+  if(d.atfull){ atl.full=!atl.full; document.body.classList.toggle("atfull",atl.full); render(); if(atl.engine) atl.engine.setFull(atl.full); return }
+  if(d.atedit!=null){ atl.edit=d.atedit; atl.draft=null; render(); return }
+  if(d.atsave){ atSaveCoef(d.atsave,false); return }
+  if(d.atreset){ atSaveCoef(d.atreset,true); return }
+  if(d.atlist){ e.preventDefault(); atl.listOpen=!atl.listOpen; render(); return }
+  if(d.atcoefs){ e.preventDefault(); atl.coefOpen=!atl.coefOpen; if(!atl.coefOpen) atl.edit=""; render(); return }
+});
+document.addEventListener("change",e=>{ const el=e.target;
+  if(el.id==="at-add"&&el.value){ atl.draft=Object.assign(atReadDraft(),{[el.value]:0.5}); render() }
+  else if(el.dataset&&el.dataset.atlvl){ atl.draft=atReadDraft() }
+});
+document.addEventListener("input",e=>{ if(e.target.id!=="at-q") return; atl.q=e.target.value; const pos=e.target.selectionStart; render();
+  const el=document.getElementById("at-q"); if(el){ el.focus(); try{ el.setSelectionRange(pos,pos) }catch(x){} } });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&(atl.sel||atl.full)){ if(atl.sel){ atl.sel=""; atl.edit="" } else { atl.full=false; document.body.classList.remove("atfull"); if(atl.engine) atl.engine.setFull(false) } render() } });
+
 /* =====================  VERSION WEB : mise en route et compte  ===================== */
 window.WA_rerender = () => safeRender();
 const onb = { step: 0, d: { sex: "h" }, err: "" };
@@ -3543,6 +4103,7 @@ function render(){
   document.getElementById("daynav").hidden=!showNav;
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-current",b.dataset.tab===state.tab?"page":"false"));
   app.innerHTML = state.tab==="accueil"?viewAccueil():state.tab==="journee"?viewJournee():state.tab==="jour"?viewJour():state.tab==="seance"?viewSeance():state.tab==="coach"?viewCoach():viewProfil();
+  try{ atAfterRender() }catch(e){ console.warn(e) }
 }
 
 function setDayField(f,v){
@@ -3917,7 +4478,6 @@ app.addEventListener("click",e=>{
   if(t.id==="sbStart"){ sbPersist(true); return }
   if(t.id==="sbSave"){ sbPersist(false); return }
   if(t.dataset.custdel){ const id=t.dataset.custdel.slice(2), c=state.customs[id]; if(!c) return; if(!t.dataset.sure){ t.dataset.sure="1"; t.textContent="Confirmer"; return } const d=Object.assign({},c,{archived:true}); state.customs[id]=d; putDoc("customs",id,d); customsKey=""; render(); return }
-  if(t.dataset.bmmode){ bm.mode=t.dataset.bmmode; render(); return }
   if(t.dataset.goalset){ setNewGoal(t.dataset.goalset); return }
   if(t.id==="goalSave"){ const el=document.getElementById("goal-new"); if(el&&el.value) setNewGoal(el.value); return }
   if(t.dataset.sesscat){ state.sessCat=t.dataset.sesscat; cv.open=""; cv.msg=""; render(); return }
