@@ -220,6 +220,27 @@ nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:re
 .ico{width:28px;height:28px;flex:none;object-fit:contain}
 .ttl{display:flex;align-items:center;gap:8px}
 .ttl .ico{width:24px;height:24px}
+.ex-sum{display:flex;align-items:center;gap:4px}
+.ex-tog{flex:1;display:flex;gap:12px;align-items:center;text-align:left;background:transparent;border:0;padding:0;color:inherit;font:inherit;min-width:0;cursor:pointer}
+.ex-tog .thumb{width:56px;height:56px}
+.ex-sumt{display:grid;gap:4px;min-width:0;flex:1}
+.ex-tog .chev{color:var(--muted);font-size:1.1rem;padding:0 4px}
+.okc{color:var(--good,#3d9a5f)}
+.mchips{display:flex;flex-wrap:wrap;gap:4px}
+.mchip{font-size:.72rem;padding:2px 8px;border-radius:999px;line-height:1.4}
+.mchip.p{background:rgba(224,82,79,.16);color:#d9534f;font-weight:600}
+.mchip.s{background:var(--sunk);color:var(--muted)}
+.ex-body{display:grid;gap:10px}
+.exvisu{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center;background:var(--sunk);border-radius:12px;padding:8px}
+.exvisu img{width:120px;height:120px;border-radius:8px;display:block;background:#0f161b}
+.exvisu-ph{width:120px;height:120px;border-radius:8px;background:#0f161b;color:#9fb3bf;font-size:.7rem;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px}
+.exvisu-t{display:grid;gap:5px;font-size:.8rem;line-height:1.35}
+.exvisu-t i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px}
+.wtag{color:#3d9a5f;font-weight:700}
+.winp{background:rgba(61,154,95,.08)!important;border-color:rgba(61,154,95,.35)!important}
+.wlabel{font-size:.68rem;color:#3d9a5f;font-weight:600;text-align:center}
+.wdel{width:34px;height:34px;font-size:.8rem}
+.addwarm{justify-self:start;color:#3d9a5f}
 .thumb{width:68px;height:68px;flex:none;object-fit:contain;background:var(--sunk);border-radius:10px;padding:5px}
 .ex-top{display:flex;gap:12px;align-items:center;min-width:0}
 .ex-top>div{min-width:0;flex:1;display:grid;gap:2px}
@@ -1217,6 +1238,12 @@ function viewSeance(){
       const n=nSets(ex,cur);
       const last=lastSets(eid,k);
       const sug=suggest(ex,info,last);
+      const warm=(cur.warm||[]), wrows=warm.map((st,i)=>`<span class="sn num wtag">É</span>
+        <input type="text" inputmode="decimal" id="s-${ex.id}-w${i}-kg" data-ex="${ex.id}" data-w="1" data-i="${i}" data-k="kg" value="${esc(st.kg??"")}" placeholder="${ex.time?"–":ex.bw?"lest kg":"kg"}" ${ex.time?"disabled":""} class="winp" aria-label="Échauffement ${i+1} charge">
+        <input type="text" inputmode="numeric" id="s-${ex.id}-w${i}-r" data-ex="${ex.id}" data-w="1" data-i="${i}" data-k="r" value="${esc(st.r??"")}" placeholder="${ex.time?"sec":"reps"}" class="winp" aria-label="Échauffement ${i+1} ${ex.time?"secondes":"répétitions"}">
+        <span class="wlabel">échauff.</span>
+        <button class="ib wdel" data-delwarm="${ex.id}|${i}" aria-label="Supprimer la série d'échauffement ${i+1}">✕</button>`).join("");
+      const doneN=(cur.sets||[]).slice(0,n).filter(setRowDone).length, okey=state.sel+"|"+ex.id, isOpen=!!(state.exOpen||{})[okey];
       const rows=[...Array(n)].map((_,i)=>{const st=(cur.sets||[])[i]||{};
         return `<span class="sn num">${i+1}</span>
         <input type="text" inputmode="decimal" id="s-${ex.id}-${i}-kg" data-ex="${ex.id}" data-i="${i}" data-k="kg" value="${esc(st.kg??"")}" placeholder="${ex.time?"–":sug&&sug.kg!=null?kgTxt(sug.kg):ex.bw?"lest kg":"kg"}" ${ex.time?"disabled":""} aria-label="Série ${i+1} charge">
@@ -1229,25 +1256,32 @@ function viewSeance(){
         <button class="a-clear" data-exact="clear"><span aria-hidden="true">↺</span>Vider les séries</button>
         <button class="a-skip" data-exact="skip"><span aria-hidden="true">✕</span>${isExtra?"Supprimer":"Pas fait"}</button>
       </div>
-      <div class="ex exs">
-        <div class="ex-top"><img class="thumb" src="icons/${ex.icon}.webp" alt="" loading="lazy"><div>
-          <div class="ex-head"><span class="ex-name">${esc(ex.n)}${isExtra?` <span class="pill acc" style="font-size:.7rem;padding:1px 7px">ajouté</span>`:""}</span><span style="display:flex;align-items:center"><span class="ex-target">${ex.t}</span><button class="exmenu" data-exmenu="${ex.id}" aria-label="Options de l'exercice">⋯</button></span></div>
+      <div class="ex exs ${isOpen?"exopen":"exclosed"}">
+        <div class="ex-sum"><button class="ex-tog" data-exopen="${okey}" aria-expanded="${isOpen}"><img class="thumb" src="icons/${ex.icon}.webp" alt="" loading="lazy"><span class="ex-sumt">
+          <span class="ex-name">${esc(ex.n)}${isExtra?` <span class="pill acc" style="font-size:.7rem;padding:1px 7px">ajouté</span>`:""}</span>
+          ${exChipsHTML(eid)}
+          <span class="meta">${ex.t}${doneN?` · <b class="${doneN>=n?"okc":""}">${doneN}/${n} séries</b>`:""}${warm.length?` · ${warm.length} échauff.`:""}</span></span><span class="chev">${isOpen?"▾":"›"}</span></button>
+          <button class="exmenu" data-exmenu="${ex.id}" aria-label="Options de l'exercice">⋯</button></div>
+        ${isOpen?`<div class="ex-body">
+        ${exVisuHTML(eid)}
+        <div>
           ${swapped?`<span class="meta">À la place de : ${esc(slotEx.n)}</span>`:""}
           <button class="linkbtn swaplink" data-swapopen="${ex.id}">${swap.open===ex.id?"":"Modifier l'exercice"}</button>
           ${sug?`<div class="coach"><span><b>Coach :</b> ${esc(sug.msg)}</span>${sug.kg!=null?`<button class="linkbtn" data-fillsug="${ex.id}" data-kg="${sug.kg}">Mettre ${kgTxt(sug.kg)} kg partout</button>`:""}</div>`:""}
           <span class="meta">${last?"Dernière fois ("+fmtShort.format(parseKey(last.k))+") : "+esc(setsText(last.e,ex))+(last.e.set?" · réglage "+esc(last.e.set):""):"Première fois : note ta charge de départ."}</span>
           ${last&&!(cur.sets||[]).some(x=>num(x.r)!=null)?`<button class="linkbtn" data-filllast="${ex.id}">Reprendre les mêmes charges que la dernière fois</button>`:""}
           <span class="meta">Repos entre séries : <b>${restLabel(ex.rest)}</b></span>
-        </div></div>
+        </div>
         ${swap.open===ex.id?swapHTML(ex.id,eid):""}
-        <div class="sets"><span></span><span class="hd">${ex.time?"":ex.bw?"Lest (kg)":"Charge (kg)"}</span><span class="hd">${ex.time?"Secondes":"Répétitions"}</span><span class="hd" title="Répétitions en réserve, facultatif">${ex.time?"":"RIR"}</span><span></span>${rows}</div>
+        <div class="sets"><span></span><span class="hd">${ex.time?"":ex.bw?"Lest (kg)":"Charge (kg)"}</span><span class="hd">${ex.time?"Secondes":"Répétitions"}</span><span class="hd" title="Répétitions en réserve, facultatif">${ex.time?"":"RIR"}</span><span></span>${wrows}${rows}</div>
+        <button class="linkbtn addwarm" data-addwarm="${ex.id}">+ Série d'échauffement</button>
         <div class="row" style="justify-content:space-between">
           ${ex.time||ex.bw?"<span></span>":`<input type="text" id="set-${ex.id}" data-ex="${ex.id}" data-k="set" value="${esc(cur.set??"")}" placeholder="Réglage machine (siège, dossier…)" style="flex:1;font-size:.9rem;padding:7px 9px">`}
         </div>
         <div class="ex-actions">
           <button class="restbtn" data-rest="${ex.rest}" data-restlabel="${esc(ex.n)}"><span aria-hidden="true">⏱</span> Repos ${restLabel(ex.rest)}</button>
           <span class="setctl"><button class="ib" data-delset="${ex.id}" ${n<=1?"disabled":""} aria-label="Retirer la dernière série">−</button><span class="meta num">${n} série${n>1?"s":""}</span><button class="ib" data-addset="${ex.id}" aria-label="Ajouter une série">+</button></span>
-        </div>
+        </div></div>`:""}
       </div></div>`};
     const entries=[], seen=new Set();
     const pushAfter=id=>extras.filter(x=>x.after===id&&!seen.has(x.id)).forEach(x=>{ seen.add(x.id); entries.push({id:x.id,html:renderEx({id:x.id,t:x.t},true)}); pushAfter(x.id) });
@@ -3635,6 +3669,22 @@ function createAtlas3D(THREE, dec, buf, opt){
     setFull(f){ full = !!f; setTimeout(resize, 30) },
     zoom(f){ cam.anim = null; cam.dist = Math.min(fitDist * 1.3, Math.max(fitDist * 0.16, cam.dist * f)); req() },
     snapshot, has: a => !!byA[a], render: req,
+    bodyShot(map, w, h){ // corps entier face + dos, colorié selon map, pour la vignette d'un exercice
+      const keep = { colors, dims, sel, hover, layer }; colors = map || {}; dims = null; sel = ""; hover = "";
+      Object.values(mats).forEach(m => { const a = m.userData.a; m.color.set(colors[a] || "#5d666e"); m.emissive.setHex(0) });
+      meshes.concat(ctx).forEach(m => m.visible = true);
+      const c2 = new THREE.PerspectiveCamera(24, (w / 2) / h, 0.05, 20), out = document.createElement("canvas"); out.width = w; out.height = h; const g = out.getContext("2d");
+      const k2 = new THREE.DirectionalLight(0xffffff, 0.55); k2.position.set(-1, 1.5, 2); c2.add(k2); const f2 = new THREE.DirectionalLight(0xbcd2e0, 0.2); f2.position.set(1.5, 0, 1); c2.add(f2); scene.add(c2);
+      camera.remove(key); camera.remove(fill); camera.remove(rim);
+      const vf = THREE.MathUtils.degToRad(c2.fov) / 2, d = (H * 0.53) / Math.tan(vf), rt = new THREE.WebGLRenderTarget(w / 2, h, { samples: 4 }), px = new Uint8Array(w / 2 * h * 4);
+      [0, Math.PI].forEach((yaw, j) => {
+        c2.position.set(center.x + d * Math.sin(yaw), center.y, center.z + d * Math.cos(yaw)); c2.lookAt(center);
+        renderer.setRenderTarget(rt); renderer.setClearColor(0x0f161b, 1); renderer.clear(); renderer.render(scene, c2); renderer.readRenderTargetPixels(rt, 0, 0, w / 2, h, px);
+        const img = g.createImageData(w / 2, h); for(let y = 0; y < h; y++) img.data.set(px.subarray((h - 1 - y) * w / 2 * 4, (h - y) * w / 2 * 4), y * w / 2 * 4);
+        g.putImageData(img, j * w / 2, 0) });
+      renderer.setRenderTarget(null); renderer.setClearColor(0x000000, 0); rt.dispose(); scene.remove(c2); camera.add(key); camera.add(fill); camera.add(rim);
+      colors = keep.colors; dims = keep.dims; sel = keep.sel; hover = keep.hover; setLayer(keep.layer); paint();
+      return out.toDataURL("image/png") },
     probe(a){ const ms = byA[a]; if(!ms) return null; place(); camera.updateMatrixWorld(); const r = canvas.getBoundingClientRect(), v = new THREE.Vector3();
       for(const m of ms){ if(!m.visible) continue; const P = m.geometry.attributes.position, step = Math.max(1, Math.floor(P.count / 30));
         for(let i = 0; i < P.count; i += step){ v.fromBufferAttribute(P, i).project(camera); if(Math.abs(v.x) > .97 || Math.abs(v.y) > .97) continue;
@@ -3959,7 +4009,7 @@ function atEnsureEngine(){
       atl.engine=createAtlas3D(window.THREE,dec,buf,{segments:{rectus:[.45,.63,.8]},onPick:atOnPick,onHover:atOnHover});
       atl.status="ready"; atl.engine.setView(atl.view,true); atl.engine.setLayer(atl.layer);
     }catch(e){ atl.status="error"; atl.err="L'affichage 3D n'a pas pu démarrer ("+(e.message||e)+"). La liste des muscles et les fiches restent disponibles ci-dessous."; console.warn(e) }
-    atLoading=null; if(atl.status==="ready") atAfterRender(true); else { const msg=document.getElementById("at-msg"); if(msg) msg.textContent=atl.err } if(atl.sel) render();
+    atLoading=null; if(atl.status==="ready"&&atl._visuWait){ atl._visuWait=false; if(!document.getElementById("atlas-host")) render() } if(atl.status==="ready") atAfterRender(true); else { const msg=document.getElementById("at-msg"); if(msg) msg.textContent=atl.err } if(atl.sel) render();
   })();
   return atLoading;
 }
@@ -4023,6 +4073,30 @@ document.addEventListener("change",e=>{ const el=e.target;
 document.addEventListener("input",e=>{ if(e.target.id!=="at-q") return; atl.q=e.target.value; const pos=e.target.selectionStart; render();
   const el=document.getElementById("at-q"); if(el){ el.focus(); try{ el.setSelectionRange(pos,pos) }catch(x){} } });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&(atl.sel||atl.full)){ if(atl.sel){ atl.sel=""; atl.edit="" } else { atl.full=false; document.body.classList.remove("atfull"); if(atl.engine) atl.engine.setFull(false) } render() } });
+
+/* ---- muscles d'un exercice : pastilles et vignette 3D (séance) ---- */
+const AT_SHORT={pec_clav:"Haut des pecs",pec_stern:"Pectoraux",pec_abd:"Bas des pecs",pec_min:"Petit pectoral",delt_ant:"Épaule avant",delt_lat:"Épaule côté",delt_post:"Arrière d'épaule",
+  supra:"Coiffe",infra:"Coiffe",teres_min:"Coiffe",subscap:"Coiffe",trap_sup:"Trapèzes",trap_mid:"Trapèzes",trap_inf:"Trapèzes",lats:"Grand dorsal",teres_maj:"Grand rond",rhomb:"Rhomboïdes",erect:"Lombaires",
+  bic_long:"Biceps",bic_short:"Biceps",brachialis:"Brachial",brachiorad:"Brachioradial",tri_long:"Triceps",tri_lat:"Triceps",tri_med:"Triceps",fa_flex:"Avant-bras",fa_ext:"Avant-bras",
+  rectus:"Abdos",ext_obl:"Obliques",int_obl:"Obliques",transv:"Transverse",serratus:"Dentelé",glute_max:"Fessiers",glute_med:"Moyen fessier",glute_min:"Moyen fessier",tfl:"Hanche",iliopsoas:"Psoas",
+  rf:"Quadriceps",vl:"Quadriceps",vm:"Quadriceps",vi:"Quadriceps",sartorius:"Sartorius",add:"Adducteurs",bf:"Ischios",st:"Ischios",sm:"Ischios",gast_med:"Mollets",gast_lat:"Mollets",soleus:"Mollets",tib_ant:"Tibial"};
+function exMuscles(id){ const L=atCoef(id).list, p=[], s2=[];
+  L.filter(([,l])=>l>=1).forEach(([m])=>{ const t=AT_SHORT[m]; if(t&&!p.includes(t)) p.push(t) });
+  L.filter(([,l])=>l>=.5&&l<1).forEach(([m])=>{ const t=AT_SHORT[m]; if(t&&!p.includes(t)&&!s2.includes(t)) s2.push(t) });
+  return {p,s:s2,list:L} }
+function exChipsHTML(id){ const m=exMuscles(id); if(!m.p.length&&!m.s.length) return "";
+  return `<span class="mchips">${m.p.map(t=>`<span class="mchip p">${esc(t)}</span>`).join("")}${m.s.slice(0,3).map(t=>`<span class="mchip s">${esc(t)}</span>`).join("")}</span>` }
+const exShots={};
+function exVisuHTML(id){
+  const m=exMuscles(id), L=m.list;
+  const det=lvl=>L.filter(([,l])=>lvl===1?l>=1:l===lvl).map(([a])=>ATM[a].fr).join(", ");
+  let img="";
+  if(atl.engine&&atl.status==="ready"){ const key=id+JSON.stringify(L); if(!exShots[key]){ const col={}; L.forEach(([a,l])=>col[a]=l>=1?"#E0524F":l>=.5?"#EE9A3E":"#C9A45C"); try{ exShots[key]=atl.engine.bodyShot(col,300,300) }catch(e){ exShots[key]="" } } img=exShots[key] }
+  else if(atl.status!=="error"){ atEnsureEngine(); atl._visuWait=true }
+  return `<div class="exvisu">${img?`<img src="${img}" alt="Muscles sollicités : face et dos">`:atl.status==="error"?"":`<div class="exvisu-ph">Chargement du modèle…</div>`}
+    <div class="exvisu-t">${det(1)?`<span><i style="background:#E0524F"></i><b>Principal</b> : ${esc(det(1))}</span>`:""}${det(.5)?`<span><i style="background:#EE9A3E"></i><b>Secondaire</b> : ${esc(det(.5))}</span>`:""}${det(.25)?`<span><i style="background:#C9A45C"></i><b>Stabilisateur</b> : ${esc(det(.25))}</span>`:""}
+    ${L.length?"":`<span class="meta">Aucun muscle associé à cet exercice : règle-le dans Profil → Analyse musculaire → Exercices et coefficients.</span>`}</div></div>`;
+}
 
 /* =====================  VERSION WEB : mise en route et compte  ===================== */
 window.WA_rerender = () => safeRender();
@@ -4437,6 +4511,7 @@ app.addEventListener("input",e=>{
     const b=sessionBody(); const ex=b.ex[el.dataset.ex]=b.ex[el.dataset.ex]||{sets:[]};
     if(!ex.alt){ const eid=effId(el.dataset.ex,ex); if(eid!==el.dataset.ex) ex.alt=eid }
     if(el.dataset.k==="set"){ ex.set=el.value }
+    else if(el.dataset.w){ const i=+el.dataset.i; ex.warm=(ex.warm||[]).slice(); while(ex.warm.length<=i)ex.warm.push({}); ex.warm[i]=Object.assign({},ex.warm[i],{[el.dataset.k]:el.value.trim()}) }
     else{ const i=+el.dataset.i; ex.sets=ex.sets||[]; while(ex.sets.length<=i)ex.sets.push({}); ex.sets[i][el.dataset.k]=el.value.trim() }
     if(!b.type) b.type=plannedType(state.sel)||"";
     if(!b.startedAt&&el.dataset.k==="r"&&state.sel===todayKey()) b.startedAt=Date.now();
@@ -4630,6 +4705,12 @@ app.addEventListener("click",e=>{
     let filled=false; ins.forEach(el=>{ if(el&&!el.disabled&&!el.value.trim()){ const ph=el.placeholder.replace(/\s/g,""); if(/^\d+([.,]\d+)?$/.test(ph)){ el.value=ph; el.dispatchEvent(new Event("input",{bubbles:true})); filled=true } } });
     const r=ins[1]; if(!r||!r.value.trim()){ if(r) r.focus(); return }
     t.classList.add("on"); const n=document.querySelectorAll(`[data-setok^="${slot}|"]`).length; if(+i<n-1&&+rest>0) startTimer(+rest,"Repos"); return }
+  if(t.dataset.exopen){ const o=state.exOpen=state.exOpen||{}; o[t.dataset.exopen]=!o[t.dataset.exopen]; render(); return }
+  if(t.dataset.addwarm||t.dataset.delwarm){ const [slot,wi]=(t.dataset.addwarm||t.dataset.delwarm).split("|"), b=sessionBody(), ex=b.ex[slot]=b.ex[slot]||{sets:[]};
+    if(!ex.alt){ const eid=effId(slot,ex); if(eid!==slot) ex.alt=eid }
+    const w=(ex.warm||[]).slice(); if(t.dataset.addwarm) w.push({}); else w.splice(+wi,1); ex.warm=w;
+    if(!b.type) b.type=plannedType(state.sel)||""; save("sessions",state.sel,b); render();
+    if(t.dataset.addwarm){ const el=document.getElementById(`s-${slot}-w${w.length-1}-kg`); if(el&&!el.disabled) el.focus() } return }
   if(t.dataset.filllast){ const slot=t.dataset.filllast, b=sessionBody(), ex=b.ex[slot]=b.ex[slot]||{sets:[]}, last=lastSets(effId(slot,ex),state.sel); if(!last) return;
     if(!ex.alt){ const eid=effId(slot,ex); if(eid!==slot) ex.alt=eid } ex.sets=(ex.sets||[]).slice(); (last.e.sets||[]).forEach((x,i)=>{ while(ex.sets.length<=i) ex.sets.push({}); if(x.kg!=null&&x.kg!=="") ex.sets[i]=Object.assign({},ex.sets[i],{kg:x.kg}) });
     if(!b.type) b.type=plannedType(state.sel)||""; save("sessions",state.sel,b); render(); return }

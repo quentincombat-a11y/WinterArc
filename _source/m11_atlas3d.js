@@ -216,6 +216,22 @@ function createAtlas3D(THREE, dec, buf, opt){
     setFull(f){ full = !!f; setTimeout(resize, 30) },
     zoom(f){ cam.anim = null; cam.dist = Math.min(fitDist * 1.3, Math.max(fitDist * 0.16, cam.dist * f)); req() },
     snapshot, has: a => !!byA[a], render: req,
+    bodyShot(map, w, h){ // corps entier face + dos, colorié selon map, pour la vignette d'un exercice
+      const keep = { colors, dims, sel, hover, layer }; colors = map || {}; dims = null; sel = ""; hover = "";
+      Object.values(mats).forEach(m => { const a = m.userData.a; m.color.set(colors[a] || "#5d666e"); m.emissive.setHex(0) });
+      meshes.concat(ctx).forEach(m => m.visible = true);
+      const c2 = new THREE.PerspectiveCamera(24, (w / 2) / h, 0.05, 20), out = document.createElement("canvas"); out.width = w; out.height = h; const g = out.getContext("2d");
+      const k2 = new THREE.DirectionalLight(0xffffff, 0.55); k2.position.set(-1, 1.5, 2); c2.add(k2); const f2 = new THREE.DirectionalLight(0xbcd2e0, 0.2); f2.position.set(1.5, 0, 1); c2.add(f2); scene.add(c2);
+      camera.remove(key); camera.remove(fill); camera.remove(rim);
+      const vf = THREE.MathUtils.degToRad(c2.fov) / 2, d = (H * 0.53) / Math.tan(vf), rt = new THREE.WebGLRenderTarget(w / 2, h, { samples: 4 }), px = new Uint8Array(w / 2 * h * 4);
+      [0, Math.PI].forEach((yaw, j) => {
+        c2.position.set(center.x + d * Math.sin(yaw), center.y, center.z + d * Math.cos(yaw)); c2.lookAt(center);
+        renderer.setRenderTarget(rt); renderer.setClearColor(0x0f161b, 1); renderer.clear(); renderer.render(scene, c2); renderer.readRenderTargetPixels(rt, 0, 0, w / 2, h, px);
+        const img = g.createImageData(w / 2, h); for(let y = 0; y < h; y++) img.data.set(px.subarray((h - 1 - y) * w / 2 * 4, (h - y) * w / 2 * 4), y * w / 2 * 4);
+        g.putImageData(img, j * w / 2, 0) });
+      renderer.setRenderTarget(null); renderer.setClearColor(0x000000, 0); rt.dispose(); scene.remove(c2); camera.add(key); camera.add(fill); camera.add(rim);
+      colors = keep.colors; dims = keep.dims; sel = keep.sel; hover = keep.hover; setLayer(keep.layer); paint();
+      return out.toDataURL("image/png") },
     probe(a){ const ms = byA[a]; if(!ms) return null; place(); camera.updateMatrixWorld(); const r = canvas.getBoundingClientRect(), v = new THREE.Vector3();
       for(const m of ms){ if(!m.visible) continue; const P = m.geometry.attributes.position, step = Math.max(1, Math.floor(P.count / 30));
         for(let i = 0; i < P.count; i += step){ v.fromBufferAttribute(P, i).project(camera); if(Math.abs(v.x) > .97 || Math.abs(v.y) > .97) continue;

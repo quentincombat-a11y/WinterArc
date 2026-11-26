@@ -312,7 +312,7 @@ function atEnsureEngine(){
       atl.engine=createAtlas3D(window.THREE,dec,buf,{segments:{rectus:[.45,.63,.8]},onPick:atOnPick,onHover:atOnHover});
       atl.status="ready"; atl.engine.setView(atl.view,true); atl.engine.setLayer(atl.layer);
     }catch(e){ atl.status="error"; atl.err="L'affichage 3D n'a pas pu démarrer ("+(e.message||e)+"). La liste des muscles et les fiches restent disponibles ci-dessous."; console.warn(e) }
-    atLoading=null; if(atl.status==="ready") atAfterRender(true); else { const msg=document.getElementById("at-msg"); if(msg) msg.textContent=atl.err } if(atl.sel) render();
+    atLoading=null; if(atl.status==="ready"&&atl._visuWait){ atl._visuWait=false; if(!document.getElementById("atlas-host")) render() } if(atl.status==="ready") atAfterRender(true); else { const msg=document.getElementById("at-msg"); if(msg) msg.textContent=atl.err } if(atl.sel) render();
   })();
   return atLoading;
 }
@@ -376,3 +376,27 @@ document.addEventListener("change",e=>{ const el=e.target;
 document.addEventListener("input",e=>{ if(e.target.id!=="at-q") return; atl.q=e.target.value; const pos=e.target.selectionStart; render();
   const el=document.getElementById("at-q"); if(el){ el.focus(); try{ el.setSelectionRange(pos,pos) }catch(x){} } });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&(atl.sel||atl.full)){ if(atl.sel){ atl.sel=""; atl.edit="" } else { atl.full=false; document.body.classList.remove("atfull"); if(atl.engine) atl.engine.setFull(false) } render() } });
+
+/* ---- muscles d'un exercice : pastilles et vignette 3D (séance) ---- */
+const AT_SHORT={pec_clav:"Haut des pecs",pec_stern:"Pectoraux",pec_abd:"Bas des pecs",pec_min:"Petit pectoral",delt_ant:"Épaule avant",delt_lat:"Épaule côté",delt_post:"Arrière d'épaule",
+  supra:"Coiffe",infra:"Coiffe",teres_min:"Coiffe",subscap:"Coiffe",trap_sup:"Trapèzes",trap_mid:"Trapèzes",trap_inf:"Trapèzes",lats:"Grand dorsal",teres_maj:"Grand rond",rhomb:"Rhomboïdes",erect:"Lombaires",
+  bic_long:"Biceps",bic_short:"Biceps",brachialis:"Brachial",brachiorad:"Brachioradial",tri_long:"Triceps",tri_lat:"Triceps",tri_med:"Triceps",fa_flex:"Avant-bras",fa_ext:"Avant-bras",
+  rectus:"Abdos",ext_obl:"Obliques",int_obl:"Obliques",transv:"Transverse",serratus:"Dentelé",glute_max:"Fessiers",glute_med:"Moyen fessier",glute_min:"Moyen fessier",tfl:"Hanche",iliopsoas:"Psoas",
+  rf:"Quadriceps",vl:"Quadriceps",vm:"Quadriceps",vi:"Quadriceps",sartorius:"Sartorius",add:"Adducteurs",bf:"Ischios",st:"Ischios",sm:"Ischios",gast_med:"Mollets",gast_lat:"Mollets",soleus:"Mollets",tib_ant:"Tibial"};
+function exMuscles(id){ const L=atCoef(id).list, p=[], s2=[];
+  L.filter(([,l])=>l>=1).forEach(([m])=>{ const t=AT_SHORT[m]; if(t&&!p.includes(t)) p.push(t) });
+  L.filter(([,l])=>l>=.5&&l<1).forEach(([m])=>{ const t=AT_SHORT[m]; if(t&&!p.includes(t)&&!s2.includes(t)) s2.push(t) });
+  return {p,s:s2,list:L} }
+function exChipsHTML(id){ const m=exMuscles(id); if(!m.p.length&&!m.s.length) return "";
+  return `<span class="mchips">${m.p.map(t=>`<span class="mchip p">${esc(t)}</span>`).join("")}${m.s.slice(0,3).map(t=>`<span class="mchip s">${esc(t)}</span>`).join("")}</span>` }
+const exShots={};
+function exVisuHTML(id){
+  const m=exMuscles(id), L=m.list;
+  const det=lvl=>L.filter(([,l])=>lvl===1?l>=1:l===lvl).map(([a])=>ATM[a].fr).join(", ");
+  let img="";
+  if(atl.engine&&atl.status==="ready"){ const key=id+JSON.stringify(L); if(!exShots[key]){ const col={}; L.forEach(([a,l])=>col[a]=l>=1?"#E0524F":l>=.5?"#EE9A3E":"#C9A45C"); try{ exShots[key]=atl.engine.bodyShot(col,300,300) }catch(e){ exShots[key]="" } } img=exShots[key] }
+  else if(atl.status!=="error"){ atEnsureEngine(); atl._visuWait=true }
+  return `<div class="exvisu">${img?`<img src="${img}" alt="Muscles sollicités : face et dos">`:atl.status==="error"?"":`<div class="exvisu-ph">Chargement du modèle…</div>`}
+    <div class="exvisu-t">${det(1)?`<span><i style="background:#E0524F"></i><b>Principal</b> : ${esc(det(1))}</span>`:""}${det(.5)?`<span><i style="background:#EE9A3E"></i><b>Secondaire</b> : ${esc(det(.5))}</span>`:""}${det(.25)?`<span><i style="background:#C9A45C"></i><b>Stabilisateur</b> : ${esc(det(.25))}</span>`:""}
+    ${L.length?"":`<span class="meta">Aucun muscle associé à cet exercice : règle-le dans Profil → Analyse musculaire → Exercices et coefficients.</span>`}</div></div>`;
+}
